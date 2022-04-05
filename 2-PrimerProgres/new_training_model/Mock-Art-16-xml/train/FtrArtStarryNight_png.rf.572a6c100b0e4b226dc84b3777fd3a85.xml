@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>FtrArtStarryNight_png.rf.572a6c100b0e4b226dc84b3777fd3a85.jpg</filename>
+	<path>FtrArtStarryNight_png.rf.572a6c100b0e4b226dc84b3777fd3a85.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>StarryNight</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>1278</xmax>
+			<ymin>1</ymin>
+			<ymax>1277</ymax>
+		</bndbox>
+	</object>
+</annotation>

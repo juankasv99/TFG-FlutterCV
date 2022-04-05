@@ -1,0 +1,350 @@
+item {
+    name: "Ajisaisoukeizu",
+    id: 1,
+    display_name: "Ajisaisoukeizu"
+}
+item {
+    name: "AjisaisoukeizuFake",
+    id: 2,
+    display_name: "AjisaisoukeizuFake"
+}
+item {
+    name: "AppleOrange",
+    id: 3,
+    display_name: "AppleOrange"
+}
+item {
+    name: "BarFB",
+    id: 4,
+    display_name: "BarFB"
+}
+item {
+    name: "BirthVenus",
+    id: 5,
+    display_name: "BirthVenus"
+}
+item {
+    name: "BirthVenusFake",
+    id: 6,
+    display_name: "BirthVenusFake"
+}
+item {
+    name: "BlueBoy",
+    id: 7,
+    display_name: "BlueBoy"
+}
+item {
+    name: "BlueBoyFake",
+    id: 8,
+    display_name: "BlueBoyFake"
+}
+item {
+    name: "Capitolini",
+    id: 9,
+    display_name: "Capitolini"
+}
+item {
+    name: "CapitoliniFake",
+    id: 10,
+    display_name: "CapitoliniFake"
+}
+item {
+    name: "ClothedMaja",
+    id: 11,
+    display_name: "ClothedMaja"
+}
+item {
+    name: "David",
+    id: 12,
+    display_name: "David"
+}
+item {
+    name: "DavidFake",
+    id: 13,
+    display_name: "DavidFake"
+}
+item {
+    name: "Diskobolos",
+    id: 14,
+    display_name: "Diskobolos"
+}
+item {
+    name: "DiskobolosFake",
+    id: 15,
+    display_name: "DiskobolosFake"
+}
+item {
+    name: "Doguu",
+    id: 16,
+    display_name: "Doguu"
+}
+item {
+    name: "DoguuFake",
+    id: 17,
+    display_name: "DoguuFake"
+}
+item {
+    name: "FifePlayer",
+    id: 18,
+    display_name: "FifePlayer"
+}
+item {
+    name: "FightingTemeraire",
+    id: 19,
+    display_name: "FightingTemeraire"
+}
+item {
+    name: "Fuujin",
+    id: 20,
+    display_name: "Fuujin"
+}
+item {
+    name: "FuujinFake",
+    id: 21,
+    display_name: "FuujinFake"
+}
+item {
+    name: "Gleaners",
+    id: 22,
+    display_name: "Gleaners"
+}
+item {
+    name: "Heibayo",
+    id: 23,
+    display_name: "Heibayo"
+}
+item {
+    name: "HeibayoFake",
+    id: 24,
+    display_name: "HeibayoFake"
+}
+item {
+    name: "HoumuwuDing",
+    id: 25,
+    display_name: "HoumuwuDing"
+}
+item {
+    name: "HoumuwuDingFake",
+    id: 26,
+    display_name: "HoumuwuDingFake"
+}
+item {
+    name: "HunterSnow",
+    id: 27,
+    display_name: "HunterSnow"
+}
+item {
+    name: "HunterSnowFake",
+    id: 28,
+    display_name: "HunterSnowFake"
+}
+item {
+    name: "IsleOfDead",
+    id: 29,
+    display_name: "IsleOfDead"
+}
+item {
+    name: "Kamehameha",
+    id: 30,
+    display_name: "Kamehameha"
+}
+item {
+    name: "Kanagawa",
+    id: 31,
+    display_name: "Kanagawa"
+}
+item {
+    name: "LasMeninas",
+    id: 32,
+    display_name: "LasMeninas"
+}
+item {
+    name: "LasMeninasFake",
+    id: 33,
+    display_name: "LasMeninasFake"
+}
+item {
+    name: "LibertyLeading",
+    id: 34,
+    display_name: "LibertyLeading"
+}
+item {
+    name: "Mikaeri",
+    id: 35,
+    display_name: "Mikaeri"
+}
+item {
+    name: "MikaeriFake",
+    id: 36,
+    display_name: "MikaeriFake"
+}
+item {
+    name: "Milkmaid",
+    id: 37,
+    display_name: "Milkmaid"
+}
+item {
+    name: "MilkmaidFake",
+    id: 38,
+    display_name: "MilkmaidFake"
+}
+item {
+    name: "Milo",
+    id: 39,
+    display_name: "Milo"
+}
+item {
+    name: "MiloFake",
+    id: 40,
+    display_name: "MiloFake"
+}
+item {
+    name: "MonaLisa",
+    id: 41,
+    display_name: "MonaLisa"
+}
+item {
+    name: "MonaLisaFake",
+    id: 42,
+    display_name: "MonaLisaFake"
+}
+item {
+    name: "Nefertiti",
+    id: 43,
+    display_name: "Nefertiti"
+}
+item {
+    name: "NefertitiFake",
+    id: 44,
+    display_name: "NefertitiFake"
+}
+item {
+    name: "NightWatch",
+    id: 45,
+    display_name: "NightWatch"
+}
+item {
+    name: "NightWatchFake",
+    id: 46,
+    display_name: "NightWatchFake"
+}
+item {
+    name: "OlmecaHead",
+    id: 47,
+    display_name: "OlmecaHead"
+}
+item {
+    name: "OlmecaHeadFake",
+    id: 48,
+    display_name: "OlmecaHeadFake"
+}
+item {
+    name: "OotaniOniji",
+    id: 49,
+    display_name: "OotaniOniji"
+}
+item {
+    name: "OotaniOnijiFake",
+    id: 50,
+    display_name: "OotaniOnijiFake"
+}
+item {
+    name: "Ophelia",
+    id: 51,
+    display_name: "Ophelia"
+}
+item {
+    name: "PearlEarring",
+    id: 52,
+    display_name: "PearlEarring"
+}
+item {
+    name: "PearlEarringFake",
+    id: 53,
+    display_name: "PearlEarringFake"
+}
+item {
+    name: "PortraitCecilia",
+    id: 54,
+    display_name: "PortraitCecilia"
+}
+item {
+    name: "PortraitCeciliaFake",
+    id: 55,
+    display_name: "PortraitCeciliaFake"
+}
+item {
+    name: "Raijin",
+    id: 56,
+    display_name: "Raijin"
+}
+item {
+    name: "RaijinFake",
+    id: 57,
+    display_name: "RaijinFake"
+}
+item {
+    name: "RosettaStone",
+    id: 58,
+    display_name: "RosettaStone"
+}
+item {
+    name: "RosettaStoneFake",
+    id: 59,
+    display_name: "RosettaStoneFake"
+}
+item {
+    name: "Samothrace",
+    id: 60,
+    display_name: "Samothrace"
+}
+item {
+    name: "SamothraceFake",
+    id: 61,
+    display_name: "SamothraceFake"
+}
+item {
+    name: "Slower",
+    id: 62,
+    display_name: "Slower"
+}
+item {
+    name: "StarryNight",
+    id: 63,
+    display_name: "StarryNight"
+}
+item {
+    name: "Summer",
+    id: 64,
+    display_name: "Summer"
+}
+item {
+    name: "SummerFake",
+    id: 65,
+    display_name: "SummerFake"
+}
+item {
+    name: "SundayOn",
+    id: 66,
+    display_name: "SundayOn"
+}
+item {
+    name: "Sunflower",
+    id: 67,
+    display_name: "Sunflower"
+}
+item {
+    name: "Thinker",
+    id: 68,
+    display_name: "Thinker"
+}
+item {
+    name: "VitruvianMan",
+    id: 69,
+    display_name: "VitruvianMan"
+}
+item {
+    name: "VitruvianManFake",
+    id: 70,
+    display_name: "VitruvianManFake"
+}

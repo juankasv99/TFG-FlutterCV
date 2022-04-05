@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>FtrArtPortraitCecilia_png.rf.ad69996ae6b0d5b9ad4209db5aae4d42.jpg</filename>
+	<path>FtrArtPortraitCecilia_png.rf.ad69996ae6b0d5b9ad4209db5aae4d42.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>PortraitCecilia</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>1273</xmax>
+			<ymin>1</ymin>
+			<ymax>1275</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>FtrArtBlueBoyFake_png.rf.af4cdfb5796572379b8ea01365912985.jpg</filename>
+	<path>FtrArtBlueBoyFake_png.rf.af4cdfb5796572379b8ea01365912985.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>BlueBoyFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>1279</xmax>
+			<ymin>1</ymin>
+			<ymax>1280</ymax>
+		</bndbox>
+	</object>
+</annotation>

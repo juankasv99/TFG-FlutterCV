@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_121104_jpg.rf.48ef10a39c1883277c98cb1b8757a87a.jpg</filename>
+	<path>IMG_20220320_121104_jpg.rf.48ef10a39c1883277c98cb1b8757a87a.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Ajisaisoukeizu</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>567</xmin>
+			<xmax>695</xmax>
+			<ymin>470</ymin>
+			<ymax>765</ymax>
+		</bndbox>
+	</object>
+</annotation>

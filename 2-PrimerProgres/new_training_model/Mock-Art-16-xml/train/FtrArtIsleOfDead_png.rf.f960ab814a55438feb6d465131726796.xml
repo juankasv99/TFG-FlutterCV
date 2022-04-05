@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>FtrArtIsleOfDead_png.rf.f960ab814a55438feb6d465131726796.jpg</filename>
+	<path>FtrArtIsleOfDead_png.rf.f960ab814a55438feb6d465131726796.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>IsleOfDead</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>1278</xmax>
+			<ymin>1</ymin>
+			<ymax>1275</ymax>
+		</bndbox>
+	</object>
+</annotation>

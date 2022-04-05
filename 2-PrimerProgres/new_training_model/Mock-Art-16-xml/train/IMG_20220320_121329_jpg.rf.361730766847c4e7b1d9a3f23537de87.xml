@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_121329_jpg.rf.361730766847c4e7b1d9a3f23537de87.jpg</filename>
+	<path>IMG_20220320_121329_jpg.rf.361730766847c4e7b1d9a3f23537de87.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>VitruvianMan</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>594</xmin>
+			<xmax>728</xmax>
+			<ymin>500</ymin>
+			<ymax>742</ymax>
+		</bndbox>
+	</object>
+</annotation>

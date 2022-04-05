@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_162318_jpg.rf.4d95d0218a29a2d17162f950aa405f99.jpg</filename>
+	<path>IMG_20220323_162318_jpg.rf.4d95d0218a29a2d17162f950aa405f99.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Milkmaid</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>493</xmin>
+			<xmax>776</xmax>
+			<ymin>389</ymin>
+			<ymax>793</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_121504_jpg.rf.065cf7cab2c47ddccaf0c4ae94f38e20.jpg</filename>
+	<path>IMG_20220320_121504_jpg.rf.065cf7cab2c47ddccaf0c4ae94f38e20.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Capitolini</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>512</xmin>
+			<xmax>828</xmax>
+			<ymin>526</ymin>
+			<ymax>787</ymax>
+		</bndbox>
+	</object>
+</annotation>

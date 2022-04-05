@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_120116_jpg.rf.11cb43f07c65ad1bd45e154d24f7934d.jpg</filename>
+	<path>IMG_20220320_120116_jpg.rf.11cb43f07c65ad1bd45e154d24f7934d.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>MikaeriFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>747</xmin>
+			<xmax>818</xmax>
+			<ymin>471</ymin>
+			<ymax>673</ymax>
+		</bndbox>
+	</object>
+</annotation>

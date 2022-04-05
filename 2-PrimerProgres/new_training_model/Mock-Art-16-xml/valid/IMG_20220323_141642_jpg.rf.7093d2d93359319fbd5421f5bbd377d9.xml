@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_141642_jpg.rf.7093d2d93359319fbd5421f5bbd377d9.jpg</filename>
+	<path>IMG_20220323_141642_jpg.rf.7093d2d93359319fbd5421f5bbd377d9.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>HoumuwuDingFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>632</xmin>
+			<xmax>866</xmax>
+			<ymin>446</ymin>
+			<ymax>782</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_130351_jpg.rf.a907f97cd4e529b8b097d4b18297bb4f.jpg</filename>
+	<path>IMG_20220323_130351_jpg.rf.a907f97cd4e529b8b097d4b18297bb4f.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>DavidFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>588</xmin>
+			<xmax>781</xmax>
+			<ymin>395</ymin>
+			<ymax>992</ymax>
+		</bndbox>
+	</object>
+</annotation>

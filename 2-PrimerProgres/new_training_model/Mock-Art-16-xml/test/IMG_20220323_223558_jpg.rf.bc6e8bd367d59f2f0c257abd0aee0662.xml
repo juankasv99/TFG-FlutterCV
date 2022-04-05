@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_223558_jpg.rf.bc6e8bd367d59f2f0c257abd0aee0662.jpg</filename>
+	<path>IMG_20220323_223558_jpg.rf.bc6e8bd367d59f2f0c257abd0aee0662.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Milo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>605</xmin>
+			<xmax>788</xmax>
+			<ymin>369</ymin>
+			<ymax>1096</ymax>
+		</bndbox>
+	</object>
+</annotation>

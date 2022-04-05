@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_122753_jpg.rf.5a6c62761957840d23c9d61ca19a3d0b.jpg</filename>
+	<path>IMG_20220320_122753_jpg.rf.5a6c62761957840d23c9d61ca19a3d0b.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>OotaniOnijiFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>605</xmin>
+			<xmax>705</xmax>
+			<ymin>625</ymin>
+			<ymax>833</ymax>
+		</bndbox>
+	</object>
+</annotation>

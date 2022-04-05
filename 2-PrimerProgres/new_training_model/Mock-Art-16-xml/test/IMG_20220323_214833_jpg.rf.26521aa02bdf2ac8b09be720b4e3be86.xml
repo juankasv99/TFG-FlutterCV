@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_214833_jpg.rf.26521aa02bdf2ac8b09be720b4e3be86.jpg</filename>
+	<path>IMG_20220323_214833_jpg.rf.26521aa02bdf2ac8b09be720b4e3be86.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>SamothraceFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>591</xmin>
+			<xmax>777</xmax>
+			<ymin>453</ymin>
+			<ymax>847</ymax>
+		</bndbox>
+	</object>
+</annotation>

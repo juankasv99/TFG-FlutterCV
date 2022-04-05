@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_120819_jpg.rf.09ad9d6630d85d86751bd518d421518b.jpg</filename>
+	<path>IMG_20220320_120819_jpg.rf.09ad9d6630d85d86751bd518d421518b.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>BirthVenusFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>480</xmin>
+			<xmax>886</xmax>
+			<ymin>448</ymin>
+			<ymax>792</ymax>
+		</bndbox>
+	</object>
+</annotation>

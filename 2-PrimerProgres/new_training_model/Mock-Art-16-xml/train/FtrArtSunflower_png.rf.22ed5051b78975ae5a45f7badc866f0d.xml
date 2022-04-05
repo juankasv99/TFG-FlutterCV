@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>FtrArtSunflower_png.rf.22ed5051b78975ae5a45f7badc866f0d.jpg</filename>
+	<path>FtrArtSunflower_png.rf.22ed5051b78975ae5a45f7badc866f0d.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Sunflower</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>1277</xmax>
+			<ymin>1</ymin>
+			<ymax>1278</ymax>
+		</bndbox>
+	</object>
+</annotation>

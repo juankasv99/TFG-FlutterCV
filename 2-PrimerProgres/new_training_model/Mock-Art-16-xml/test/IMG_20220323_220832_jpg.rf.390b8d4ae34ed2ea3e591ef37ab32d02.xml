@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_220832_jpg.rf.390b8d4ae34ed2ea3e591ef37ab32d02.jpg</filename>
+	<path>IMG_20220323_220832_jpg.rf.390b8d4ae34ed2ea3e591ef37ab32d02.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Thinker</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>560</xmin>
+			<xmax>765</xmax>
+			<ymin>364</ymin>
+			<ymax>880</ymax>
+		</bndbox>
+	</object>
+</annotation>

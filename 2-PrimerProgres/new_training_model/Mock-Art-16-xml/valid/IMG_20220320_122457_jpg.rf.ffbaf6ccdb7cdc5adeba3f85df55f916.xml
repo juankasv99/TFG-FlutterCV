@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_122457_jpg.rf.ffbaf6ccdb7cdc5adeba3f85df55f916.jpg</filename>
+	<path>IMG_20220320_122457_jpg.rf.ffbaf6ccdb7cdc5adeba3f85df55f916.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Sunflower</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>646</xmin>
+			<xmax>890</xmax>
+			<ymin>526</ymin>
+			<ymax>930</ymax>
+		</bndbox>
+	</object>
+</annotation>

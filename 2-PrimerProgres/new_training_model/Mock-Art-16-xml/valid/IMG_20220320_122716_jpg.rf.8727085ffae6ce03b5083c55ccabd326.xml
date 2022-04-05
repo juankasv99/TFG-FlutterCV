@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_122716_jpg.rf.8727085ffae6ce03b5083c55ccabd326.jpg</filename>
+	<path>IMG_20220320_122716_jpg.rf.8727085ffae6ce03b5083c55ccabd326.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Slower</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>679</xmin>
+			<xmax>820</xmax>
+			<ymin>513</ymin>
+			<ymax>743</ymax>
+		</bndbox>
+	</object>
+</annotation>

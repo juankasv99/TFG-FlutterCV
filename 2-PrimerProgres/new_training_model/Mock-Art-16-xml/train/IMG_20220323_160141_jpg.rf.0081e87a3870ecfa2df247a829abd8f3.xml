@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_160141_jpg.rf.0081e87a3870ecfa2df247a829abd8f3.jpg</filename>
+	<path>IMG_20220323_160141_jpg.rf.0081e87a3870ecfa2df247a829abd8f3.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>LasMeninasFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>452</xmin>
+			<xmax>836</xmax>
+			<ymin>325</ymin>
+			<ymax>1025</ymax>
+		</bndbox>
+	</object>
+</annotation>

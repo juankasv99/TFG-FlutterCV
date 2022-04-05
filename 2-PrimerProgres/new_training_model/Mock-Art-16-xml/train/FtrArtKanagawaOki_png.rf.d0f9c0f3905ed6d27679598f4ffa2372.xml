@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>FtrArtKanagawaOki_png.rf.d0f9c0f3905ed6d27679598f4ffa2372.jpg</filename>
+	<path>FtrArtKanagawaOki_png.rf.d0f9c0f3905ed6d27679598f4ffa2372.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Kanagawa</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>1275</xmax>
+			<ymin>1</ymin>
+			<ymax>1272</ymax>
+		</bndbox>
+	</object>
+</annotation>
