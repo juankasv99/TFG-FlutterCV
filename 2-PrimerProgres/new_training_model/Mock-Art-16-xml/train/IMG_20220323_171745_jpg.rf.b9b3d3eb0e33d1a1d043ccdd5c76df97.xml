@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_171745_jpg.rf.b9b3d3eb0e33d1a1d043ccdd5c76df97.jpg</filename>
+	<path>IMG_20220323_171745_jpg.rf.b9b3d3eb0e33d1a1d043ccdd5c76df97.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>OlmecaHead</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>617</xmin>
+			<xmax>805</xmax>
+			<ymin>352</ymin>
+			<ymax>725</ymax>
+		</bndbox>
+	</object>
+</annotation>

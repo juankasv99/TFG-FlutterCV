@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_122822_jpg.rf.d8c9aca50c8857e6526e8fc528d0d272.jpg</filename>
+	<path>IMG_20220320_122822_jpg.rf.d8c9aca50c8857e6526e8fc528d0d272.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>MiloFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>609</xmin>
+			<xmax>749</xmax>
+			<ymin>337</ymin>
+			<ymax>899</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_153446_jpg.rf.e1e2cf560245628d32e5887fd725e387.jpg</filename>
+	<path>IMG_20220323_153446_jpg.rf.e1e2cf560245628d32e5887fd725e387.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>HunterSnowFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>435</xmin>
+			<xmax>836</xmax>
+			<ymin>403</ymin>
+			<ymax>890</ymax>
+		</bndbox>
+	</object>
+</annotation>

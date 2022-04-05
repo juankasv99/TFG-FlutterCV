@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_123659_jpg.rf.df6325e6b7f2eef54b0abf52b6bed0be.jpg</filename>
+	<path>IMG_20220320_123659_jpg.rf.df6325e6b7f2eef54b0abf52b6bed0be.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>NightWatchFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>529</xmin>
+			<xmax>829</xmax>
+			<ymin>490</ymin>
+			<ymax>796</ymax>
+		</bndbox>
+	</object>
+</annotation>

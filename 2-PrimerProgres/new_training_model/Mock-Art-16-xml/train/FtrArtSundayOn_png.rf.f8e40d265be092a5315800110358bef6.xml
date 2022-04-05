@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>FtrArtSundayOn_png.rf.f8e40d265be092a5315800110358bef6.jpg</filename>
+	<path>FtrArtSundayOn_png.rf.f8e40d265be092a5315800110358bef6.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>SundayOn</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>1280</xmax>
+			<ymin>1</ymin>
+			<ymax>1279</ymax>
+		</bndbox>
+	</object>
+</annotation>

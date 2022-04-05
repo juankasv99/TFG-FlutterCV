@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_123156_jpg.rf.6b46ce9e3791d15409e3eaa8a7e5e031.jpg</filename>
+	<path>IMG_20220320_123156_jpg.rf.6b46ce9e3791d15409e3eaa8a7e5e031.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>PortraitCecilia</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>685</xmin>
+			<xmax>858</xmax>
+			<ymin>432</ymin>
+			<ymax>719</ymax>
+		</bndbox>
+	</object>
+</annotation>

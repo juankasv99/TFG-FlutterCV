@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_120721_jpg.rf.83df20748ad449e04fd2db5e60c98c07.jpg</filename>
+	<path>IMG_20220320_120721_jpg.rf.83df20748ad449e04fd2db5e60c98c07.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>LibertyLeading</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>536</xmin>
+			<xmax>786</xmax>
+			<ymin>466</ymin>
+			<ymax>749</ymax>
+		</bndbox>
+	</object>
+</annotation>

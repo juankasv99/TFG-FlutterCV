@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_121024_jpg.rf.d3f416e9ff7b4cecaf2e0a7caa2fb750.jpg</filename>
+	<path>IMG_20220320_121024_jpg.rf.d3f416e9ff7b4cecaf2e0a7caa2fb750.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>ClothedMaja</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>382</xmin>
+			<xmax>894</xmax>
+			<ymin>496</ymin>
+			<ymax>850</ymax>
+		</bndbox>
+	</object>
+</annotation>

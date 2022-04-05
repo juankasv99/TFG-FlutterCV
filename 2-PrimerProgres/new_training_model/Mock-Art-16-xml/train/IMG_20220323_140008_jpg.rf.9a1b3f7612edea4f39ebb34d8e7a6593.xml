@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_140008_jpg.rf.9a1b3f7612edea4f39ebb34d8e7a6593.jpg</filename>
+	<path>IMG_20220323_140008_jpg.rf.9a1b3f7612edea4f39ebb34d8e7a6593.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Heibayo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>591</xmin>
+			<xmax>734</xmax>
+			<ymin>421</ymin>
+			<ymax>919</ymax>
+		</bndbox>
+	</object>
+</annotation>

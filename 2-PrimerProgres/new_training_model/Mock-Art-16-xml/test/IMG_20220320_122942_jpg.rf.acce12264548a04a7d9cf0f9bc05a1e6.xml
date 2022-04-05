@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_122942_jpg.rf.acce12264548a04a7d9cf0f9bc05a1e6.jpg</filename>
+	<path>IMG_20220320_122942_jpg.rf.acce12264548a04a7d9cf0f9bc05a1e6.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Summer</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>647</xmin>
+			<xmax>858</xmax>
+			<ymin>411</ymin>
+			<ymax>772</ymax>
+		</bndbox>
+	</object>
+</annotation>

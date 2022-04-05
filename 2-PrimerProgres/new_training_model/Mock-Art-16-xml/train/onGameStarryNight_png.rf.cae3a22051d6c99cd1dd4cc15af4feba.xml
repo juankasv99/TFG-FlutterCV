@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>onGameStarryNight_png.rf.cae3a22051d6c99cd1dd4cc15af4feba.jpg</filename>
+	<path>onGameStarryNight_png.rf.cae3a22051d6c99cd1dd4cc15af4feba.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>StarryNight</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>411</xmin>
+			<xmax>866</xmax>
+			<ymin>235</ymin>
+			<ymax>887</ymax>
+		</bndbox>
+	</object>
+</annotation>

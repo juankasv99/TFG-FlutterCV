@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>FtrArtSummerFake_png.rf.b6f1ae24877387bec6c1c60c625bd0f9.jpg</filename>
+	<path>FtrArtSummerFake_png.rf.b6f1ae24877387bec6c1c60c625bd0f9.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>SummerFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>1277</xmax>
+			<ymin>1</ymin>
+			<ymax>1278</ymax>
+		</bndbox>
+	</object>
+</annotation>

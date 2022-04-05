@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_120505_jpg.rf.542cb5d7ad0d9fb5734a18cfd12b9a78.jpg</filename>
+	<path>IMG_20220320_120505_jpg.rf.542cb5d7ad0d9fb5734a18cfd12b9a78.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>MonaLisaFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>563</xmin>
+			<xmax>684</xmax>
+			<ymin>512</ymin>
+			<ymax>742</ymax>
+		</bndbox>
+	</object>
+</annotation>

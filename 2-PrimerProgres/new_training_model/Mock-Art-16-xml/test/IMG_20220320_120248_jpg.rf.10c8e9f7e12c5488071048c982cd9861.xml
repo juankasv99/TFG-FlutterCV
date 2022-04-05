@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_120248_jpg.rf.10c8e9f7e12c5488071048c982cd9861.jpg</filename>
+	<path>IMG_20220320_120248_jpg.rf.10c8e9f7e12c5488071048c982cd9861.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>DoguuFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>686</xmin>
+			<xmax>839</xmax>
+			<ymin>513</ymin>
+			<ymax>820</ymax>
+		</bndbox>
+	</object>
+</annotation>

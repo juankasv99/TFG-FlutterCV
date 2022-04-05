@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_121205_jpg.rf.9158f0a0525557c8c2571c9718700342.jpg</filename>
+	<path>IMG_20220320_121205_jpg.rf.9158f0a0525557c8c2571c9718700342.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>BlueBoyFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>632</xmin>
+			<xmax>800</xmax>
+			<ymin>469</ymin>
+			<ymax>759</ymax>
+		</bndbox>
+	</object>
+</annotation>

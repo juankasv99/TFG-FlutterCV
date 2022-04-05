@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_213615_jpg.rf.fecb5c428d9da1484249485cc09ef877.jpg</filename>
+	<path>IMG_20220323_213615_jpg.rf.fecb5c428d9da1484249485cc09ef877.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>RosettaStone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>593</xmin>
+			<xmax>813</xmax>
+			<ymin>486</ymin>
+			<ymax>847</ymax>
+		</bndbox>
+	</object>
+</annotation>

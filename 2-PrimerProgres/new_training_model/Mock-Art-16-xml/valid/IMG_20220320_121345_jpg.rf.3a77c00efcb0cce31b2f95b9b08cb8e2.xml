@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_121345_jpg.rf.3a77c00efcb0cce31b2f95b9b08cb8e2.jpg</filename>
+	<path>IMG_20220320_121345_jpg.rf.3a77c00efcb0cce31b2f95b9b08cb8e2.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Doguu</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>528</xmin>
+			<xmax>756</xmax>
+			<ymin>354</ymin>
+			<ymax>819</ymax>
+		</bndbox>
+	</object>
+</annotation>

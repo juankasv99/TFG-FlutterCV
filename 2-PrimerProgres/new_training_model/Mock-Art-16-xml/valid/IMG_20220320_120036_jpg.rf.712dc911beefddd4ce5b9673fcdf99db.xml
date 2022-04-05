@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_120036_jpg.rf.712dc911beefddd4ce5b9673fcdf99db.jpg</filename>
+	<path>IMG_20220320_120036_jpg.rf.712dc911beefddd4ce5b9673fcdf99db.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>NefertitiFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>636</xmin>
+			<xmax>815</xmax>
+			<ymin>448</ymin>
+			<ymax>980</ymax>
+		</bndbox>
+	</object>
+</annotation>

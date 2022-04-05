@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_123122_jpg.rf.2e9767910d2cf8f090e9282d6f1c77a2.jpg</filename>
+	<path>IMG_20220320_123122_jpg.rf.2e9767910d2cf8f090e9282d6f1c77a2.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>IsleOfDead</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>561</xmin>
+			<xmax>781</xmax>
+			<ymin>523</ymin>
+			<ymax>684</ymax>
+		</bndbox>
+	</object>
+</annotation>

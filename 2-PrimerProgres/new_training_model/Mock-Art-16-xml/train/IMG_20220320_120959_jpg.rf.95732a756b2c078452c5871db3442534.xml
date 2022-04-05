@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_120959_jpg.rf.95732a756b2c078452c5871db3442534.jpg</filename>
+	<path>IMG_20220320_120959_jpg.rf.95732a756b2c078452c5871db3442534.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Kanagawa</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>553</xmin>
+			<xmax>677</xmax>
+			<ymin>492</ymin>
+			<ymax>627</ymax>
+		</bndbox>
+	</object>
+</annotation>

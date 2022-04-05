@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>FtrArtMonaLisaFake_png.rf.f72fc51304227516eb50caa02ebb3863.jpg</filename>
+	<path>FtrArtMonaLisaFake_png.rf.f72fc51304227516eb50caa02ebb3863.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>MonaLisaFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>1274</xmax>
+			<ymin>1</ymin>
+			<ymax>1276</ymax>
+		</bndbox>
+	</object>
+</annotation>

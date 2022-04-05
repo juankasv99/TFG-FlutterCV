@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>onGameGleaners_png.rf.eb06a287d839664c4d7b64665dfd6fae.jpg</filename>
+	<path>onGameGleaners_png.rf.eb06a287d839664c4d7b64665dfd6fae.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Gleaners</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>488</xmin>
+			<xmax>799</xmax>
+			<ymin>380</ymin>
+			<ymax>794</ymax>
+		</bndbox>
+	</object>
+</annotation>

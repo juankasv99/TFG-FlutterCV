@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_203728_jpg.rf.b23fa2713c1c7d0ef2e232c4a8546cf7.jpg</filename>
+	<path>IMG_20220323_203728_jpg.rf.b23fa2713c1c7d0ef2e232c4a8546cf7.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>PearlEarringFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>580</xmin>
+			<xmax>772</xmax>
+			<ymin>397</ymin>
+			<ymax>754</ymax>
+		</bndbox>
+	</object>
+</annotation>

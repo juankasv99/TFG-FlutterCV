@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_212416_jpg.rf.d97ca5e844b3329974fcd0a6d096a9d4.jpg</filename>
+	<path>IMG_20220323_212416_jpg.rf.d97ca5e844b3329974fcd0a6d096a9d4.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>RaijinFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>489</xmin>
+			<xmax>725</xmax>
+			<ymin>475</ymin>
+			<ymax>840</ymax>
+		</bndbox>
+	</object>
+</annotation>

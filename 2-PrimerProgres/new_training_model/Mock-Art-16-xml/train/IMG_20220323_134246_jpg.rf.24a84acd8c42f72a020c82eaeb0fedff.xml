@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_134246_jpg.rf.24a84acd8c42f72a020c82eaeb0fedff.jpg</filename>
+	<path>IMG_20220323_134246_jpg.rf.24a84acd8c42f72a020c82eaeb0fedff.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>FuujinFake</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>457</xmin>
+			<xmax>870</xmax>
+			<ymin>367</ymin>
+			<ymax>892</ymax>
+		</bndbox>
+	</object>
+</annotation>

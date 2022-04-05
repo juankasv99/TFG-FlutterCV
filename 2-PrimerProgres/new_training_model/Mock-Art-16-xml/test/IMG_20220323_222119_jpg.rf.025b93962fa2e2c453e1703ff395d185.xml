@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_222119_jpg.rf.025b93962fa2e2c453e1703ff395d185.jpg</filename>
+	<path>IMG_20220323_222119_jpg.rf.025b93962fa2e2c453e1703ff395d185.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>AppleOrange</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>452</xmin>
+			<xmax>735</xmax>
+			<ymin>559</ymin>
+			<ymax>941</ymax>
+		</bndbox>
+	</object>
+</annotation>

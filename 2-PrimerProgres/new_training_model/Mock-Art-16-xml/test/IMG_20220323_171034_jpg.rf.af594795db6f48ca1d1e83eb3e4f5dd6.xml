@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220323_171034_jpg.rf.af594795db6f48ca1d1e83eb3e4f5dd6.jpg</filename>
+	<path>IMG_20220323_171034_jpg.rf.af594795db6f48ca1d1e83eb3e4f5dd6.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>NightWatch</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>487</xmin>
+			<xmax>747</xmax>
+			<ymin>532</ymin>
+			<ymax>822</ymax>
+		</bndbox>
+	</object>
+</annotation>

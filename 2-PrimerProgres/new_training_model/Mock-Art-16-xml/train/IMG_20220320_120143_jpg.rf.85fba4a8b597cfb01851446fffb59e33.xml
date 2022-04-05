@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220320_120143_jpg.rf.85fba4a8b597cfb01851446fffb59e33.jpg</filename>
+	<path>IMG_20220320_120143_jpg.rf.85fba4a8b597cfb01851446fffb59e33.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Diskobolos</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>377</xmin>
+			<xmax>743</xmax>
+			<ymin>418</ymin>
+			<ymax>911</ymax>
+		</bndbox>
+	</object>
+</annotation>
