@@ -62,6 +62,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Future getCameraImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera, maxHeight: 1280, maxWidth: 1280,);
+
+    setState(() {
+      _image = File(pickedFile!.path);
+      _imageWidget = Image.file(_image!);
+
+      _predict();
+    });
+  }
+
   void _predict() async {
     img.Image imageInput = img.decodeImage(_image!.readAsBytesSync())!;
     var pred = _classifier.predict(imageInput);
@@ -110,11 +121,24 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: getImage,
-        tooltip: 'Pick Image',
-        child: Icon(Icons.add_a_photo),
-      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            heroTag: "Fltbtn2",
+            onPressed: getImage,
+            tooltip: 'Pick Image',
+            child: Icon(Icons.add_a_photo),
+          ),
+          SizedBox(width: 10,),
+          FloatingActionButton(
+            heroTag: "Fltbtn1",
+            onPressed: getCameraImage,
+            child: Icon(Icons.camera_alt),
+          ),
+        ],
+      )
+       
     );
   }
 }
