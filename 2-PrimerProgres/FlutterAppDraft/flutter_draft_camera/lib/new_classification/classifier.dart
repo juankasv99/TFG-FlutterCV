@@ -46,6 +46,7 @@ abstract class Classifier {
   }
 
   Future<void> loadModel() async {
+    print(modelName);
     try {
       interpreter =
           await Interpreter.fromAsset(modelName, options: _interpreterOptions);
@@ -76,9 +77,10 @@ abstract class Classifier {
   TensorImage _preProcess() {
     int cropSize = min(_inputImage.height, _inputImage.width);
     return ImageProcessorBuilder()
-        .add(ResizeWithCropOrPadOp(cropSize, cropSize))
+        //.add(ResizeWithCropOrPadOp(cropSize, cropSize))
+        .add(ResizeOp(cropSize, cropSize, ResizeMethod.BILINEAR))
         .add(ResizeOp(
-            _inputShape[1], _inputShape[2], ResizeMethod.NEAREST_NEIGHBOUR))
+            _inputShape[1], _inputShape[2], ResizeMethod.BILINEAR))
         .add(preProcessNormalizeOp)
         .build()
         .process(_inputImage);

@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future getCameraImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.camera, maxHeight: 1280, maxWidth: 1280,);
+    final pickedFile = await picker.getImage(source: ImageSource.camera);//, maxHeight: 1280, maxWidth: 1280,);
 
     setState(() {
       _image = File(pickedFile!.path);
@@ -86,8 +86,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TfLite Flutter Helper',
-            style: TextStyle(color: Colors.white)),
+        title: Text('TFG-FlutterCV',
+            style: TextStyle(color: Colors.black87)),
+        backgroundColor: Color(0xFFF9dffb0),
       ),
       body: Column(
         children: <Widget>[
@@ -108,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Text(
             category != null ? category!.label : '',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
           ),
           SizedBox(
             height: 8,
@@ -125,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
+            backgroundColor: Color(0xFFF81f1f7),
             heroTag: "Fltbtn2",
             onPressed: getImage,
             tooltip: 'Pick Image',
@@ -132,12 +134,14 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           SizedBox(width: 10,),
           FloatingActionButton(
+            backgroundColor: Color(0xFFF81f1f7),
             heroTag: "Fltbtn1",
             onPressed: getCameraImage,
             child: Icon(Icons.camera_alt),
           ),
         ],
-      )
+      ),
+      backgroundColor: Colors.amber[100]
        
     );
   }

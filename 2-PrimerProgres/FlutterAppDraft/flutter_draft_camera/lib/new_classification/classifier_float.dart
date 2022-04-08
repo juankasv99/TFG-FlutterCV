@@ -5,7 +5,7 @@ class ClassifierFloat extends Classifier {
   ClassifierFloat({int? numThreads}) : super(numThreads: numThreads);
 
   @override
-  String get modelName => 'models/custom_model_fp16.tflite';
+  String get modelName => 'models/custom_model_hyp.tflite';
 
   @override
   NormalizeOp get preProcessNormalizeOp => NormalizeOp(127.5, 127.5);
