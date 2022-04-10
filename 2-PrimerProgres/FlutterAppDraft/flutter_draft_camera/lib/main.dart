@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_draft_camera/new_classification/classifier.dart';
 import 'package:flutter_draft_camera/new_classification/classifier_quant.dart';
 import 'package:logger/logger.dart';
-import 'package:tflite_flutter_helper/tflite_flutter_helper.dart';
+import 'package:tflite_flutter_helper/tflite_flutter_helper.dart'; 
 
 void main() => runApp(MyApp());
 
@@ -92,6 +92,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: <Widget>[
+          SizedBox(
+            height: 50,
+          ),
           Center(
             child: _image == null
                 ? Text('No image selected.')
