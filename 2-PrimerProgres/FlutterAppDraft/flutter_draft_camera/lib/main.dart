@@ -1,9 +1,10 @@
 import 'dart:io';
+import 'package:flutter_draft_camera/new_classification/classifier_quant.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_draft_camera/new_classification/classifier.dart';
-import 'package:flutter_draft_camera/new_classification/classifier_quant.dart';
+import 'package:flutter_draft_camera/new_classification/classifier_float.dart';
 import 'package:logger/logger.dart';
 import 'package:tflite_flutter_helper/tflite_flutter_helper.dart'; 
 

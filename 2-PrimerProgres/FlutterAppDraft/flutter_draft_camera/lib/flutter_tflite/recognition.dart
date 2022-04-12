@@ -19,15 +19,15 @@ class Recognition {
   Rect get location => _location;
 
   Rect get renderLocation {
-    double ratioX = MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.width / 1280.0;
+    double ratioX = MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width / 1280.0;
     double ratioY = ratioX;
 
     double transLeft = max(0.1, location.left * ratioX);
     double transTop = max(0.1, location.top * ratioY);
     double transWidth = min(
-        location.width * ratioX, MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.width);
+        location.width * ratioX, MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width);
     double transHeight = min(
-        location.height * ratioY, MediaQueryData.fromWindow(WidgetsBinding.instance!.window).size.height);
+        location.height * ratioY, MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.height);
 
     Rect transformedRect =
       Rect.fromLTWH(transLeft, transTop, transWidth, transHeight);

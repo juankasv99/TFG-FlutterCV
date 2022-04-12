@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "844348347438",
+    "project_id": "flutter-accompanion",
+    "storage_bucket": "flutter-accompanion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844348347438:android:bedeb87cb27991c2553bbf",
+        "android_client_info": {
+          "package_name": "com.example.flutter_draft_camera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844348347438-lsgbdhbjutngt28tm4jjb4r93on70ob0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3BVKs70RMLAhM--KSmJ2yAVX_42XdcUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844348347438-lsgbdhbjutngt28tm4jjb4r93on70ob0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
