@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter_draft_camera/firebase_options.dart';
 import 'package:flutter_draft_camera/new_classification/classifier_quant.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
@@ -7,22 +6,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_draft_camera/new_classification/classifier.dart';
 import 'package:flutter_draft_camera/new_classification/classifier_float.dart';
 import 'package:logger/logger.dart';
-import 'package:tflite_flutter_helper/tflite_flutter_helper.dart';
-import 'package:firebase_ml_model_downloader/firebase_ml_model_downloader.dart';
+import 'package:tflite_flutter_helper/tflite_flutter_helper.dart'; 
 
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
-
-
-
-Future<void> main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -60,16 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Category? category;
 
-  FirebaseModelDownloader downloader = FirebaseModelDownloader.instance;
-  
-  FirebaseCustomModel ?_model;
-  List<FirebaseCustomModel> ?_models;
-
   @override
   void initState() {
     super.initState();
     _classifier = ClassifierQuant();
-    getCloudModel();
   }
 
   Future getImage() async {
@@ -79,12 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
       _image = File(pickedFile!.path);
       _imageWidget = Image.file(_image!);
 
-      
-
       _predict();
     });
   }
-
 
   Future getCameraImage() async {
     final pickedFile = await picker.getImage(source: ImageSource.camera);//, maxHeight: 1280, maxWidth: 1280,);
@@ -171,10 +148,5 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.amber[100]
        
     );
-  }
-
-  void getCloudModel() async {
-    _model = await FirebaseModelDownloader.instance.getModel("AC-Art-Detector", FirebaseModelDownloadType.latestModel);
-    _models = await FirebaseModelDownloader.instance.listDownloadedModels();
   }
 }
