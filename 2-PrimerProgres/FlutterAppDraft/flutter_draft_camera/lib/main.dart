@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_draft_camera/firebase_options.dart';
 import 'package:flutter_draft_camera/new_classification/classifier_quant.dart';
@@ -9,6 +10,9 @@ import 'package:flutter_draft_camera/new_classification/classifier_float.dart';
 import 'package:logger/logger.dart';
 import 'package:tflite_flutter_helper/tflite_flutter_helper.dart';
 import 'package:firebase_ml_model_downloader/firebase_ml_model_downloader.dart';
+import 'dart:async';
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -65,11 +69,13 @@ class _MyHomePageState extends State<MyHomePage> {
   FirebaseCustomModel ?_model;
   List<FirebaseCustomModel> ?_models;
 
+  String uploadURL = 'http://192.168.1.43:5000/predict';
+
   @override
   void initState() {
     super.initState();
     _classifier = ClassifierQuant();
-    getCloudModel();
+    //getCloudModel();
   }
 
   Future getImage() async {
@@ -98,12 +104,27 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _predict() async {
+    category = null;
     img.Image imageInput = img.decodeImage(_image!.readAsBytesSync())!;
-    var pred = _classifier.predict(imageInput);
+    //var pred = _classifier.predict(imageInput);
+    var uri = Uri.parse(uploadURL);
+    var request = new http.MultipartRequest("POST", uri);
+    request.files.add(new http.MultipartFile.fromBytes("file", _image!.readAsBytesSync(), filename: "Photo.jpg", contentType: new MediaType("image", "jpg")));
 
-    setState(() {
-      this.category = pred;
+    var response = await request.send();
+    Map ?parsed;
+    print(response.statusCode);
+    response.stream.transform(utf8.decoder).listen((value) {
+      print(value);
+      parsed = json.decode(value);
+
+      setState(() {
+        this.category = Category(parsed!["prediction"], parsed!["confidence"]);
+      });
     });
+
+    
+    
   }
 
   @override
