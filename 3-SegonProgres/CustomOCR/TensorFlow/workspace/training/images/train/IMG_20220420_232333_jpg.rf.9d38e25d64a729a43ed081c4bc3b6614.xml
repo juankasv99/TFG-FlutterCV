@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>IMG_20220420_232333_jpg.rf.9d38e25d64a729a43ed081c4bc3b6614.jpg</filename>
+	<path>IMG_20220420_232333_jpg.rf.9d38e25d64a729a43ed081c4bc3b6614.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>text_bubble</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>207</xmin>
+			<xmax>441</xmax>
+			<ymin>294</ymin>
+			<ymax>394</ymax>
+		</bndbox>
+	</object>
+</annotation>
