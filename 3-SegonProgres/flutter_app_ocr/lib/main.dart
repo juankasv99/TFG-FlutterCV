@@ -114,8 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     String text = await FlutterTesseractOcr.extractText(path!, language: 'spa+eng',
           args: {
-            "psm": "12",
-            "preserve_interword_spaces": "0",
+            "psm": "3",
+            "preserve_interword_spaces": "1",
           });
 
     print(text);
