@@ -95,8 +95,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Future getCameraImage() async {
     final pickedFile = await picker.getImage(source: ImageSource.camera);//, maxHeight: 1280, maxWidth: 1280,);
 
+    File image = new File(pickedFile!.path);
+    var decodedImage = await decodeImageFromList(image.readAsBytesSync());
+    bool isHorizontalImage = decodedImage.width > decodedImage.height;
+    print(isHorizontalImage);
+
+    if (!isHorizontalImage) {
+      final img.Image? corrected_img = img.decodeImage(await image.readAsBytes());
+      final img.Image orientedImage = img.bakeOrientation(corrected_img!);
+    }
+
     setState(() {
-      _image = File(pickedFile!.path);
+      _image = File(pickedFile.path);
       _imageWidget = Image.file(_image!);
 
       _predict();
@@ -119,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
       parsed = json.decode(value);
 
       setState(() {
-        this.category = Category(parsed!["prediction"], parsed!["confidence"]);
+        this.category = Category(parsed!["prediction"],1.0); //parsed!["confidence"]);
       });
     });
 
