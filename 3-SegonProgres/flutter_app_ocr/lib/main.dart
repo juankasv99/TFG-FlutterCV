@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image/image.dart' as img;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -48,11 +49,178 @@ class _MyHomePageState extends State<MyHomePage> {
   final picker = ImagePicker();
 
   Image? _imageWidget;
+  bool textScanning = false;
+
+  String OCRtext = "";
+  String prediction = "";
 
   img.Image? fox;
 
   String uploadURL = 'http://192.168.1.43:5000/predict';
   String? path;
+
+  List<String> fishList = ['carpín',
+'pez dorado',
+'amarguillo',
+'cacho',
+'leucisco',
+'carpa',
+'koi',
+'pez telescopio',
+'killi',
+'cangrejo de río',
+'tortuga caparazón blando',
+'renacuajo',
+'rana',
+'gobio de río',
+'locha',
+'siluro',
+'pez cabeza de serpiente',
+'pez sol',
+'perca amarilla',
+'perca',
+'lucio',
+'eperlano',
+'ayu',
+'salmón japonés',
+'trucha',
+'taimén',
+'salmón',
+'salmón real',
+'cangrejo de Shanghái',
+'gupi',
+'pez doctor',
+'pez ángel',
+'tetra neón',
+'piraña',
+'arowana',
+'dorado',
+'pez caimán',
+'pirarucú',
+'bichir ensillado',
+'mariposa marina',
+'caballito de mar',
+'pez payaso',
+'pez cirujano',
+'pez mariposa',
+'pez napoleón',
+'pez león',
+'pez globo',
+'pez erizo',
+'jurel',
+'dorada japonesa',
+'lubina',
+'pargo rojo',
+'gallo',
+'rodaballo',
+'calamar',
+'morena',
+'anguila de listón azul',
+'pez balón',
+'atún',
+'pez espada',
+'jurel gigante',
+'raya',
+'pez luna',
+'pez martillo',
+'tiburón',
+'pez sierra',
+'tiburón ballena',
+'pez remo',
+'celacanto',
+'esturión',
+'tilapia',
+'betta',
+'tortuga mordedora',
+'trucha dorada',
+'pez arcoíris',
+'boquerón',
+'lampuga',
+'rémora',
+'pez cabeza transparente',
+'ranchú'];
+
+
+  List<String> insectList = ['cigarra marrón',
+'mariposa tigre',
+'mariposa alas de Brooke',
+'libélula roja',
+'mariposa alas de pájaro',
+'zapatero',
+'hormiga',
+'cochinilla',
+'cochinilla de arena',
+'polilla',
+'escarabajo nadador',
+'libélula caballito del diablo',
+'goliat',
+'mosca',
+'mantis orquídea',
+'escarabajo tigre',
+'escarabajo astado hércules',
+'cigarrilla',
+'esc. ciervo cyclommatus',
+'luciérnaga',
+'escarabajo pelotero',
+'langosta',
+'mosquito',
+'mantis religiosa',
+'chinche',
+'longicornio asiático',
+'mariposa bianor',
+'caracol',
+'escarabajo astado japonés',
+'saltamontes',
+'escarabajo geotrúpido',
+'escarabajo astado atlas',
+'insecto hoja',
+'grillo común',
+'cigarra gigante',
+'araña',
+'mariposa narciso',
+'cigarra oriental',
+'oruga de bolsón',
+'abeja melífera',
+'escarabajo ciervo Miyama',
+'mariposa colias',
+'mariposa común',
+'mariposa celeste',
+'ciempiés',
+'insecto palo',
+'escarabajo ciervo arcoíris',
+'escarabajo ciervo sierra',
+'pulga',
+'grillo cebollero',
+'libélula tigre',
+'mariposa monarca',
+'escarabajo ciervo gigante',
+'escarabajo ciervo tornasol',
+'escarabajo oro',
+'escorpión',
+'muda de cigarra',
+'grillo campana',
+'avispa',
+'langosta alargada',
+'escarabajo joya',
+'tarántula',
+'mariquita',
+'langosta migratoria',
+'cigarra común',
+'escarabajo violín',
+'cangrejo ermitaño',
+'polilla atlas',
+'escarabajo astado elefante',
+'mariposa triángulo azul',
+'mariposa cometa de papel',
+'marip. emperador japonés',
+'escarabajo verde japonés',
+'escarabajo ciervo jirafa',
+'chinche con rostro humano',
+'polilla crepuscular',
+'gorgojo azul',
+'escarabajo rosalia batesi',
+'chinche acuática gigante',
+'libélula damisela',];
 
   @override
   void initState() {
@@ -60,19 +228,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future getImage() async {
+    prediction = "";
     //final pickedFile = await picker.getImage(source: ImageSource.gallery);
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-    path = image!.path;
-
-    final Directory copy_dic = await getApplicationDocumentsDirectory();
     
     
 
     //image.saveTo(path!);
     //image.saveTo('./assets/temp.jpg');
-
+    textScanning = true;
     setState(() {
-      _image = File(image.path);
+      _image = File(image!.path);
       _imageWidget = Image.file(_image!);
 
       
@@ -83,10 +249,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   Future getCameraImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.camera);//, maxHeight: 1280, maxWidth: 1280,);
-
+    prediction = "";
+    final XFile? image = await picker.pickImage(source: ImageSource.camera);
     setState(() {
-      _image = File(pickedFile!.path);
+      _image = File(image!.path);
       _imageWidget = Image.file(_image!);
 
       _predict();
@@ -94,31 +260,32 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _predict() async {
-    img.Image imageInput = img.decodeImage(_image!.readAsBytesSync())!;
-    // //var pred = _classifier.predict(imageInput);
-    // var uri = Uri.parse(uploadURL);
-    // var request = new http.MultipartRequest("POST", uri);
-    // request.files.add(new http.MultipartFile.fromBytes("file", _image!.readAsBytesSync(), filename: "Photo.jpg", contentType: new MediaType("image", "jpg")));
+    //img.Image imageInput = img.decodeImage(_image!.readAsBytesSync())!;
 
-    // var response = await request.send();
-    // Map ?parsed;
-    // print(response.statusCode);
-    // response.stream.transform(utf8.decoder).listen((value) {
-    //   print(value);
-    //   parsed = json.decode(value);
+    final inputImage = InputImage.fromFilePath(_image!.path);
+    final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
+    RecognizedText recognisedText = await textRecognizer.processImage(inputImage);
+    await textRecognizer.close();
+    String scannedText = "";
 
-    //   setState(() {
-        
-    //   });
-    // });
+    for(TextBlock block in recognisedText.blocks) {
+      for (TextLine line in block.lines) {
+        scannedText = scannedText + line.text + "\n";
+      }
+    }
 
-    String text = await FlutterTesseractOcr.extractText(path!, language: 'spa+eng',
-          args: {
-            "psm": "3",
-            "preserve_interword_spaces": "1",
-          });
+    textScanning = false;
 
-    print(text);
+    print(scannedText);
+    var encoded = utf8.encode(scannedText.replaceAll("\n", " ").toLowerCase());
+    OCRtext = utf8.decode(encoded);
+
+
+    getResult();
+
+    setState(() {
+      
+    });
     
   }
 
@@ -150,7 +317,7 @@ class _MyHomePageState extends State<MyHomePage> {
           SizedBox(
             height: 36,
           ),
-          Text("test",
+          Text(prediction != "" ? prediction : "",
             //category != null ? category!.label : '',
             style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
           ),
@@ -188,5 +355,22 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.amber[100]
        
     );
+  }
+
+  void getResult() {
+    for (var i = 0; i < fishList.length; i++) {
+      if(OCRtext.contains(fishList[i])) {
+        prediction = fishList[i];
+        break;
+      }
+    }
+    if(prediction == "") {
+      for (var i = 0; i < insectList.length; i++) {
+        if(OCRtext.contains(insectList[i])) {
+          prediction = insectList[i];
+          break;
+        }
+      }
+    }
   }
 }

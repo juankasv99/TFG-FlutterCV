@@ -319,16 +319,19 @@ def infer_ocr():
     img_bytes = request.files['file']
     img = Image.open(img_bytes)
 
-    for key,value in img._getexif().items():
-        if TAGS.get(key) == 'Orientation':
-            orientation = value
+    exif_data = img._getexif()
+    if(exif_data):
 
-    if orientation == 6:
-        img = img.rotate(270)
-    if orientation == 3:
-        img = img.rotate(180)
-    if orientation == 8:
-        im = im.rotate(90)
+        for key,value in exif_data.items():
+            if TAGS.get(key) == 'Orientation':
+                orientation = value
+
+        if orientation == 6:
+            img = img.rotate(270)
+        if orientation == 3:
+            img = img.rotate(180)
+        if orientation == 8:
+            im = im.rotate(90)
 
     img.show()
     #return on a json format
