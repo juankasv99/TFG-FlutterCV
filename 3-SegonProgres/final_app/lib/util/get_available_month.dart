@@ -16,8 +16,8 @@ const Map<int, String> monthsInYear = {
     12: "Dec",
   };
 
-  String getAvailableMonth(Insects insect) {
-  String dateSpan = insect.availability.monthNorthern;
+  String getAvailableMonth(dynamic animal) {
+  String dateSpan = animal.availability.monthNorthern;
   String result = "";
 
   if (dateSpan == "") {
@@ -37,7 +37,7 @@ const Map<int, String> monthsInYear = {
 
           j == 0 && nums.length > 1 ? result = result + "-" : null;
         }
-        i == 0 ? result = result + "\n" : null;
+        i == 0 ? result = result + " & " : null;
       }
     } else {
       //Caso normal

@@ -43,10 +43,12 @@ class _insectListState extends State<insectList> {
             child: Container(
               height: 80,
               child: ListTile(
+                isThreeLine: true,
+                
                 leading: Image.network(_insects![_insects!.keys.elementAt(index)]!.iconUri),
                 title: Text(_insects![_insects!.keys.elementAt(index)]!.name.nameEUen.capitalizeFirstofEach,
                   style: const TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 16, letterSpacing: -0.5
+                    fontWeight: FontWeight.bold, fontSize: 16, letterSpacing: -0.5, height: 1.2
                   ),
                 ),
                 subtitle: _checks![index] ?
@@ -55,7 +57,7 @@ class _insectListState extends State<insectList> {
                                       fontStyle: FontStyle.italic,
                                       color: Colors.black45,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 11.5,
+                                      fontSize: 12.5,
                                       fontFamily: "Rubik",
                                       letterSpacing: -0.5
                                     ),
@@ -68,8 +70,9 @@ class _insectListState extends State<insectList> {
                                     size: 15.0,
                                     color: const Color(0xFF69d196),)),
                           TextSpan(
-                            text: " " + getAvailableMonth(_insects![_insects!.keys.elementAt(index)]!) + "     ",
+                            text: " " + getAvailableMonth(_insects![_insects!.keys.elementAt(index)]!) + "\n",
                             style: TextStyle(
+                                            
                                             color: const Color(0xFF69d196),
                                             fontSize: 12.0,
                                             fontWeight: FontWeight.bold)
@@ -82,11 +85,24 @@ class _insectListState extends State<insectList> {
                                         text: " " +
                                             getAvailableHours(_insects![
                                                 _insects!.keys
-                                                    .elementAt(index)]!),
+                                                    .elementAt(index)]!) + "      ",
                                         style: TextStyle(
-                                            color: const Color(0xFF65d5db),
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.bold)),
+                                          height: 1.75,
+                                          color: const Color(0xFF65d5db),
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold)),
+                          WidgetSpan(
+                                        child: Icon(FontAwesomeIcons.dollarSign,
+                                            size: 16.0,
+                                            color: Colors.red[700]),),
+                          TextSpan(
+                                        text:
+                                          _insects![_insects!.keys.elementAt(index)]!.price.toString(),
+                                        style: TextStyle( 
+                                          color: Colors.red[700],
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold),
+                          )
                         ])),
                 trailing: Checkbox(checkColor: Colors.white,
                 value: _checks![index],
@@ -106,7 +122,7 @@ class _insectListState extends State<insectList> {
   }
 
   String getAvailableHours(Insects insect) {
-    String result = insect.availability.time.replaceAll(" ", "").replaceAll("&", "\n");
+    String result = insect.availability.time.replaceAll(" ", "").replaceAll("&", " & ");
 
     if (insect.availability.isAllDay) {
       result = "All day";
