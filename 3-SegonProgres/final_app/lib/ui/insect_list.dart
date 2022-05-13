@@ -25,6 +25,8 @@ class _insectListState extends State<insectList> {
     _checks = widget.checks;
     _insects = widget.insects;
   }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -104,14 +106,23 @@ class _insectListState extends State<insectList> {
                                           fontWeight: FontWeight.bold),
                           )
                         ])),
-                trailing: Checkbox(checkColor: Colors.white,
-                value: _checks![index],
-                onChanged: (bool? value){
-                  _checks![index] = value!;
-                  print("Pressed ${index}");
-                  widget.notifyParent(_checks);
+                trailing: Transform.scale(
+                  scale: 1.3,
+                  child: Checkbox(
+                    shape: CircleBorder(),
+                    activeColor: const Color(0xFF69d196),
+                    checkColor: Colors.orange[50],
+                    value: _checks![index],
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _checks![index] = value!;
+                        print("Pressed ${index}");
+                        widget.notifyParent(_checks);
+                      });
+                    },
                     
-                  },)
+                  ),
+                ),
               ),
             ),
           ),

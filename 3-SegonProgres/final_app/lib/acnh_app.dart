@@ -1,6 +1,8 @@
+import 'package:final_app/model/art_model.dart';
 import 'package:final_app/model/fishes_model.dart';
 import 'package:final_app/model/sea_model.dart';
 import 'package:final_app/network/network.dart';
+import 'package:final_app/ui/art_list.dart';
 import 'package:final_app/ui/fish_list.dart';
 import 'package:final_app/ui/sea_list.dart';
 import 'package:flutter/material.dart';
@@ -27,14 +29,17 @@ class _ACNHappState extends State<ACNHapp> {
   Map<String, Insects>? _insectObject;
   Map<String, Fishes>? _fishObject;
   Map<String, Sea>? _seaObject;
+  Map<String, Art>? _artObject;
 
   bool _isInsectLoaded = false;
   bool _isFishLoaded = false;
   bool _isSeaLoaded = false;
+  bool _isArtLoaded = false;
 
   List<bool> _insectChecks = List.filled(80, false);
   List<bool> _fishChecks = List.filled(80,false);
   List<bool> _seaChecks = List.filled(40, false);
+  List<bool> _artChecks = List.filled(43, false);
 
   static const Map<int, String> titlesInIndex = {
     0: "Insects",
@@ -52,6 +57,7 @@ class _ACNHappState extends State<ACNHapp> {
     _insectObject = getInsects();
     _fishObject = getFishes();
     _seaObject = getSea();
+    _artObject = getArt();
 
   }
 
@@ -64,7 +70,7 @@ class _ACNHappState extends State<ACNHapp> {
     _isFishLoaded ? fishList(fishes:_fishObject!, checks:_fishChecks, notifyParent: refreshFishes,) : Center(child: const CircularProgressIndicator()),
     Container(child: Text("HOME"),),
     _isSeaLoaded ? seaList(sea:_seaObject!, checks:_seaChecks, notifyParent: refreshSea,) : Center(child: const CircularProgressIndicator()),
-
+    _isArtLoaded ? artList(notifyParent: refreshArt, checks: _artChecks, art: _artObject!) : Center(child: CircularProgressIndicator(),)
     
   ];
 
@@ -82,6 +88,26 @@ class _ACNHappState extends State<ACNHapp> {
         child: _widgetOptions.elementAt(_selectedIndex),
         //child: _isInsectLoaded ? insectList(insects:_insectObject!, checks:_insectChecks, notifyParent: refreshInsects,) : Center(child: const CircularProgressIndicator()),
         //child: _isFishLoaded ? fishList(fishes:_fishObject!, checks:_fishChecks, notifyParent: refreshFishes,) : Center(child: const CircularProgressIndicator()),
+      ),
+
+      floatingActionButton: _selectedIndex == 2 ? null : Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            FloatingActionButton(
+              backgroundColor: Color(0xFF91d7db),
+              heroTag: "Fltbtn2",
+              onPressed: () => {},
+              tooltip: 'Pick Image',
+              child: Icon(Icons.photo),
+            ),
+            SizedBox(width: 10,),
+            FloatingActionButton(
+              backgroundColor: Color(0xFF91d7db),
+              heroTag: "Fltbtn1",
+              onPressed: () => {},
+              child: Icon(Icons.camera_alt),
+          ),
+          ]
       ),
 
       bottomNavigationBar: BottomNavigationBar(
@@ -174,6 +200,24 @@ class _ACNHappState extends State<ACNHapp> {
   refreshSea(dynamic childValue) {
     setState(() {
       _seaChecks = childValue;
+    });
+  }
+  
+  getArt() {
+    Future.delayed(Duration(seconds: 2), () {
+      Network.getArt().then((result) {
+        print(result);
+        setState(() {
+          _artObject = result;
+          _isArtLoaded = true;
+        });
+      });
+    });
+  }
+
+  refreshArt(dynamic childValue) {
+    setState(() {
+      _artChecks = childValue;
     });
   }
 }

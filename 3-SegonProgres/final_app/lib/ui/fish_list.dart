@@ -103,13 +103,23 @@ class _fishListState extends State<fishList> {
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.bold),),
                   ])),
-                trailing: Checkbox(checkColor: Colors.white,
-                  value: _checks![index],
-                  onChanged: (bool? value){
-                    _checks![index] = value!;
-                    print("Pressed ${index}");
-                    widget.notifyParent(_checks);
-                  },)
+                trailing: Transform.scale(
+                  scale: 1.3,
+                  child: Checkbox(
+                    shape: CircleBorder(),
+                    activeColor: const Color(0xFF69d196),
+                    checkColor: Colors.orange[50],
+                    value: _checks![index],
+                    onChanged: (bool? value) {
+                      setState(() {
+                        _checks![index] = value!;
+                        print("Pressed ${index}");
+                        widget.notifyParent(_checks);
+                      });
+                    },
+                    
+                  ),
+                ),
 
                 )
               )
