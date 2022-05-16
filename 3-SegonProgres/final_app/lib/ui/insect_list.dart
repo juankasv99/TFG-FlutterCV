@@ -46,8 +46,14 @@ class _insectListState extends State<insectList> {
               height: 80,
               child: ListTile(
                 isThreeLine: true,
-                
-                leading: Image.network(_insects![_insects!.keys.elementAt(index)]!.iconUri),
+                enabled: _checks![index],
+                leading: _checks![index] ? Image.network(_insects![_insects!.keys.elementAt(index)]!.iconUri)
+                  :
+                  ColorFiltered(
+                    colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.65),
+                      BlendMode.srcATop),
+                    child: Image.network(_insects![_insects!.keys.elementAt(index)]!.iconUri),
+                  ),
                 title: Text(_insects![_insects!.keys.elementAt(index)]!.name.nameEUen.capitalizeFirstofEach,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 16, letterSpacing: -0.5, height: 1.2
@@ -130,6 +136,17 @@ class _insectListState extends State<insectList> {
       )
     ],
     );
+  }
+
+  buildShowDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder:  (BuildContext context) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      });
   }
 
   String getAvailableHours(Insects insect) {

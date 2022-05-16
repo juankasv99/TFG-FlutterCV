@@ -44,8 +44,15 @@ class _seaListState extends State<seaList> {
               child: Container(
                 height: 80,
                 child: ListTile(
+                  enabled: _checks![index],
                   isThreeLine: true,
-                  leading: Image.network(_sea![_sea!.keys.elementAt(index)]!.iconUri),
+                  leading: _checks![index] ? Image.network(_sea![_sea!.keys.elementAt(index)]!.iconUri)
+                  :
+                  ColorFiltered(
+                    colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.65),
+                      BlendMode.srcATop),
+                    child: Image.network(_sea![_sea!.keys.elementAt(index)]!.iconUri),
+                  ),
                   title: Text(_sea![_sea!.keys.elementAt(index)]!.name.nameEUen.capitalizeFirstofEach,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 16, letterSpacing: -0.5

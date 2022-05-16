@@ -2,6 +2,7 @@ import 'package:final_app/model/art_model.dart';
 import 'package:final_app/model/fishes_model.dart';
 import 'package:final_app/model/sea_model.dart';
 import 'package:final_app/network/network.dart';
+import 'package:final_app/ui/art_info.dart';
 import 'package:final_app/ui/art_list.dart';
 import 'package:final_app/ui/fish_list.dart';
 import 'package:final_app/ui/sea_list.dart';
@@ -9,9 +10,37 @@ import 'package:flutter/material.dart';
 import 'package:final_app/main.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:final_app/ui/insect_list.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:image/image.dart' as img;
 import 'dart:io';
+import 'dart:async';
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
+import 'dart:convert';
 
 import 'package:final_app/model/insects_model.dart';
+
+
+class Category {
+  String _label;
+  double _score;
+
+  Category(this._label, this._score);
+
+  /// Gets the reference of category's label.
+  String get label => _label;
+
+  /// Gets the score of the category.
+  double get score => _score;
+
+  @override
+  bool operator ==(Object o) {
+    if (o is Category) {
+      return (o.label == _label && o.score == _score);
+    }
+    return false;
+  }
+}
 
 class ACNHapp extends StatefulWidget {
   const ACNHapp({Key? key}) : super(key: key);
@@ -37,9 +66,13 @@ class _ACNHappState extends State<ACNHapp> {
   bool _isArtLoaded = false;
 
   List<bool> _insectChecks = List.filled(80, false);
+  List<bool> _insectMuseumChecks = List.filled(80, false);
   List<bool> _fishChecks = List.filled(80,false);
+  List<bool> _fishMuseumChecks = List.filled(80,false);
   List<bool> _seaChecks = List.filled(40, false);
+  List<bool> _seaMuseumChecks = List.filled(40, false);
   List<bool> _artChecks = List.filled(43, false);
+  List<bool> _artMuseumChecks = List.filled(43, false);
 
   static const Map<int, String> titlesInIndex = {
     0: "Insects",
@@ -49,7 +82,58 @@ class _ACNHappState extends State<ACNHapp> {
     4: "Art"
   };
 
-  
+  static const List artPredictionNames = [
+    
+    "VitruvianMan",
+    "NightWatch",
+    "Doguu",
+    "BlueBoy",
+    "Milo",
+    "SundayOn",
+    "Gleaners",
+    "Ajisaisoukeizu",
+    "Kanagawa",
+    "Thinker",
+    "MonaLisa",
+    "Sunflower",
+    "David",
+    "FightingTemeraire",
+    "Mikaeri",
+    "Kamehameha",
+    "RosettaStone",
+    "Summer",
+    "Slower",
+    "Capitolini",
+    "BirthVenus",
+    "IsleOfDead",
+    "Nefertiti",
+    "FifePlayer",
+    "AppleOrange",
+    "BarFB",
+    "Milkmaid",
+    "Diskobolos",
+    "OlmecaHead",
+    "OotaniOniji",
+    "HunterSnow",
+    "PortraitCecilia",
+    "Ophelia",
+    "LasMeninas",
+    "HoumuwuDing",
+    "StarryNight",
+    "Samothrace",
+    "ClothedMaja",
+    "Heibayo",
+    "Raijin",
+    "Fuujin",
+    "PearlEarring",
+    "LibertyLeading",
+  ];
+
+  File? _image;
+  final picker = ImagePicker();
+
+  Category? category;
+  String uploadURL = 'http://192.168.1.43:5000/predict';
 
   @override
   void initState() {
@@ -58,7 +142,6 @@ class _ACNHappState extends State<ACNHapp> {
     _fishObject = getFishes();
     _seaObject = getSea();
     _artObject = getArt();
-
   }
 
   
@@ -96,7 +179,7 @@ class _ACNHappState extends State<ACNHapp> {
             FloatingActionButton(
               backgroundColor: Color(0xFF91d7db),
               heroTag: "Fltbtn2",
-              onPressed: () => {},
+              onPressed: getImage,
               tooltip: 'Pick Image',
               child: Icon(Icons.photo),
             ),
@@ -104,7 +187,7 @@ class _ACNHappState extends State<ACNHapp> {
             FloatingActionButton(
               backgroundColor: Color(0xFF91d7db),
               heroTag: "Fltbtn1",
-              onPressed: () => {},
+              onPressed: getCameraImage,
               child: Icon(Icons.camera_alt),
           ),
           ]
@@ -141,12 +224,140 @@ class _ACNHappState extends State<ACNHapp> {
     );
   }
 
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = File(pickedFile!.path);
+
+      _predict();
+    });
+  }
+
+  Future getCameraImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    File image = new File(pickedFile!.path);
+    
+    setState(() {
+      _image = File(pickedFile.path);
+
+      _predict();
+    });
+  }
+
+  void _predict() async {
+    category = null;
+    img.Image imageInput = img.decodeImage(_image!.readAsBytesSync())!;
+
+    var uri = Uri.parse(uploadURL);
+    var request = http.MultipartRequest("POST", uri);
+    request.files.add(new http.MultipartFile.fromBytes("file", _image!.readAsBytesSync(), filename: "Photo.jpg", contentType: new MediaType("image", "jpg")));
+
+    var response = await request.send();
+    Map ?parsed;
+    print(response.statusCode);
+    response.stream.transform(utf8.decoder).listen((value) {
+      print(value);
+      parsed = json.decode(value);
+
+      setState(() {
+        this.category = Category(parsed!["prediction"], 1.0);
+
+        if(category != null){
+          showDialog(context: context, barrierDismissible: false, builder: (context){
+            return Dialog(
+            elevation: 5,
+            backgroundColor: Colors.orange[100],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0)
+            ),
+            child: Container(
+              height: 500,
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("Prediction",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24.0
+                    ),),
+                  //category!._label.contains("Fake") ?  Image.network(_artObject![category!._label]!.artFakeUri!) : Image.network(_artObject![category!._label]!.artUri!),
+                  Image.network("https://acnhcdn.com/art/FtrArt${category!.label}.png"),
+                  Text(category!._label),
+                  Text("Is this correct?",
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w100
+                    ),),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                    SizedBox(
+                      height: 35,
+                      width: 100,
+                      child: ElevatedButton(
+                      onPressed: (){
+                        print(_artObject![_artObject!.keys.elementAt(artPredictionNames.indexOf(category!._label))]!.name.nameEUen);
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => artInfoPage(art: _artObject![_artObject!.keys.elementAt(artPredictionNames.indexOf(category!._label))]!, artChecks: _artChecks, artMuseumChecks: _artMuseumChecks, notifyParent: updateArtChecks,)
+                        )
+                        );
+                      },
+                      child: Text("Yes"),
+                      style: ButtonStyle(
+                        
+                        backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF91d7db))
+                      ),),
+                    ),
+                    
+                    SizedBox(width: 20.0,),
+                    ElevatedButton(
+                      onPressed: (){
+                        Navigator.of(context).pop();
+                      },
+                      child: Text("No"),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.red[700]!)
+                      ),),
+                  ],),
+                  
+                  
+                ],
+              ),
+            ),
+
+          );
+          });
+          
+        }
+      });
+    });
+
+    
+    
+    
+  }
+
   void _onItemTapped(int value) {
     setState(() {
       _selectedIndex = value;
       _selectedIndexName = titlesInIndex[value].toString();
       print(_selectedIndex);
     });
+  }
+
+  buildShowDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder:  (BuildContext context) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      });
   }
   
   getInsects() {
@@ -219,5 +430,15 @@ class _ACNHappState extends State<ACNHapp> {
     setState(() {
       _artChecks = childValue;
     });
+  }
+
+  updateArtChecks(dynamic childValue1, dynamic childValue2) {
+    Future.delayed(Duration(seconds:1), () async {
+      setState(() {
+      _artChecks = childValue1;
+      _artMuseumChecks = childValue2;
+    });
+    });
+    
   }
 }

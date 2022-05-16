@@ -19,6 +19,8 @@ class _artListState extends State<artList> {
   List<bool>? _checks;
   Map<String, Art>? _art;
 
+  double opacityLevel = 1.0;
+
   @override
   void initState() {
     super.initState();
@@ -42,8 +44,15 @@ class _artListState extends State<artList> {
               child: Container(
                 height: 80,
                 child: ListTile(
+                  enabled: _checks![index],
                   isThreeLine: true,
-                  leading: Image.network(_art![_art!.keys.elementAt(index)]!.imageUri),
+                  leading: _checks![index] ? Image.network(_art![_art!.keys.elementAt(index)]!.imageUri)
+                  :
+                  ColorFiltered(
+                    colorFilter: ColorFilter.mode(Colors.black54,
+                      BlendMode.srcATop),
+                    child: Image.network(_art![_art!.keys.elementAt(index)]!.imageUri),
+                  ),
                   title: Text(_art![_art!.keys.elementAt(index)]!.name.nameEUen.capitalizeFirstofEach,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 16, letterSpacing: -0.5
@@ -113,6 +122,7 @@ class _artListState extends State<artList> {
                     onChanged: (bool? value) {
                       setState(() {
                         _checks![index] = value!;
+                        opacityLevel == 1.0 ? 0.5 : 1.0;
                         print("Pressed ${index}");
                         widget.notifyParent(_checks);
                       });

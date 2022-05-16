@@ -9,6 +9,7 @@ import numpy as np
 import tensorflow as tf
 from PIL import Image
 from flask import Flask, jsonify, request
+from PIL.ExifTags import TAGS
 
 #model = tf.keras.models.load_model("best1.pt")
 #print(model)
@@ -42,6 +43,22 @@ def infer_image():
     #read the image
     img_bytes = request.files['file']
     img = Image.open(img_bytes)
+
+    exif_data = img._getexif()
+    if(exif_data):
+
+        for key,value in exif_data.items():
+            if TAGS.get(key) == 'Orientation':
+                orientation = value
+
+        if orientation == 6:
+            img = img.rotate(270)
+        if orientation == 3:
+            img = img.rotate(180)
+        if orientation == 8:
+            im = im.rotate(90)
+
+    img.show()
 
     #return on a json format
     pred_name, pred_conf = predict_result(img)
