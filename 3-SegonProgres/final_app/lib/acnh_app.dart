@@ -129,6 +129,35 @@ class _ACNHappState extends State<ACNHapp> {
     "LibertyLeading",
   ];
 
+  static const List statues = [
+    "Doguu",
+    "DoguuFake",
+    "Milo",
+    "MiloFake",
+    "Thinker",
+    "David",
+    "DavidFake",
+    "Kamehameha",
+    "RosettaStone",
+    "RosettaStoneFake",
+    "Capitolini",
+    "CapitoliniFake",
+    "Nefertiti",
+    "NefertitiFake",
+    "Diskobolos",
+    "DiskobolosFake",
+    "OlmecaHead",
+    "OlmecaHeadFake",
+    "HoumuwuDing",
+    "HoumuwuDingFake",
+    "Samothrace",
+    "SamothraceFake",
+    "Heibayo",
+    "HeibayoFake",
+  ];
+
+  
+
   File? _image;
   final picker = ImagePicker();
 
@@ -157,6 +186,22 @@ class _ACNHappState extends State<ACNHapp> {
     
   ];
 
+    List<Function?> galleryFunctions = [
+      getArtImage,
+      getArtImage,
+      getArtImage,
+      getArtImage,
+      getArtImage,
+    ];
+
+    List<Function?> cameraFunctions = [
+      getArtCameraImage,
+      getArtCameraImage,
+      getArtCameraImage,
+      getArtCameraImage,
+      getArtCameraImage,
+    ];
+
 
     return Scaffold(
       appBar: AppBar(
@@ -179,7 +224,7 @@ class _ACNHappState extends State<ACNHapp> {
             FloatingActionButton(
               backgroundColor: Color(0xFF91d7db),
               heroTag: "Fltbtn2",
-              onPressed: getImage,
+              onPressed: () => galleryFunctions[_selectedIndex]!(),
               tooltip: 'Pick Image',
               child: Icon(Icons.photo),
             ),
@@ -187,7 +232,7 @@ class _ACNHappState extends State<ACNHapp> {
             FloatingActionButton(
               backgroundColor: Color(0xFF91d7db),
               heroTag: "Fltbtn1",
-              onPressed: getCameraImage,
+              onPressed: () => cameraFunctions[_selectedIndex]!(),
               child: Icon(Icons.camera_alt),
           ),
           ]
@@ -224,7 +269,7 @@ class _ACNHappState extends State<ACNHapp> {
     );
   }
 
-  Future getImage() async {
+  Future getArtImage() async {
     final pickedFile = await picker.getImage(source: ImageSource.gallery);
 
     setState(() {
@@ -234,7 +279,7 @@ class _ACNHappState extends State<ACNHapp> {
     });
   }
 
-  Future getCameraImage() async {
+  Future getArtCameraImage() async {
     final pickedFile = await picker.getImage(source: ImageSource.camera);
 
     File image = new File(pickedFile!.path);
@@ -284,7 +329,30 @@ class _ACNHappState extends State<ACNHapp> {
                       fontSize: 24.0
                     ),),
                   //category!._label.contains("Fake") ?  Image.network(_artObject![category!._label]!.artFakeUri!) : Image.network(_artObject![category!._label]!.artUri!),
+                  statues.contains(category!._label) ?
+                  Image.network("https://acnhcdn.com/latest/FtrIcon/FtrSculpture${category!.label}.png")
+                  :
                   Image.network("https://acnhcdn.com/art/FtrArt${category!.label}.png"),
+                  category!._label.contains("Fake") ?
+                  RichText(text: TextSpan(
+                    children: [
+                      WidgetSpan(
+                        child: Icon(FontAwesomeIcons.triangleExclamation, color: Colors.red[900], size: 18,)
+                      ),
+                      TextSpan(
+                        text: "  " + category!._label + "  ",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18
+                        )
+                      ),
+                      WidgetSpan(
+                        child: Icon(FontAwesomeIcons.triangleExclamation, color: Colors.red[900], size: 18,)
+                      ),
+                    ]
+                  ))
+                  :
                   Text(category!._label),
                   Text("Is this correct?",
                     style: TextStyle(
@@ -299,10 +367,10 @@ class _ACNHappState extends State<ACNHapp> {
                       width: 100,
                       child: ElevatedButton(
                       onPressed: (){
-                        print(_artObject![_artObject!.keys.elementAt(artPredictionNames.indexOf(category!._label))]!.name.nameEUen);
+                        print(_artObject![_artObject!.keys.elementAt(artPredictionNames.indexOf(category!._label.replaceAll("Fake", "")))]!.name.nameEUen);
                         Navigator.of(context).pop();
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => artInfoPage(art: _artObject![_artObject!.keys.elementAt(artPredictionNames.indexOf(category!._label))]!, artChecks: _artChecks, artMuseumChecks: _artMuseumChecks, notifyParent: updateArtChecks,)
+                          builder: (context) => artInfoPage(art: _artObject![_artObject!.keys.elementAt(artPredictionNames.indexOf(category!._label.replaceAll("Fake", "")))]!, artChecks: _artChecks, artMuseumChecks: _artMuseumChecks, notifyParent: updateArtChecks,)
                         )
                         );
                       },
