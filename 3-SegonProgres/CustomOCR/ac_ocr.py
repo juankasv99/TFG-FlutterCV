@@ -304,7 +304,7 @@ def run_ocr(detections, image):
 
 app = Flask(__name__)
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predictocr', methods=['POST'])
 def infer_ocr():
     #catch the image file from a POST request
     print("Start Process")

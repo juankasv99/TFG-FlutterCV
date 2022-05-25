@@ -156,6 +156,8 @@ class _ACNHappState extends State<ACNHapp> {
     "HeibayoFake",
   ];
 
+  bool textScanning = false;
+
   
 
   File? _image;
@@ -163,6 +165,7 @@ class _ACNHappState extends State<ACNHapp> {
 
   Category? category;
   String uploadURL = 'http://192.168.1.43:5000/predict';
+  String uploadOCRURL = 'http://192.168.1.43:5000/predictocr';
 
   @override
   void initState() {
@@ -187,18 +190,18 @@ class _ACNHappState extends State<ACNHapp> {
   ];
 
     List<Function?> galleryFunctions = [
+      getOCRImage,
+      getOCRImage,
       getArtImage,
-      getArtImage,
-      getArtImage,
-      getArtImage,
+      getOCRImage,
       getArtImage,
     ];
 
     List<Function?> cameraFunctions = [
+      getOCRCameraImage,
+      getOCRCameraImage,
       getArtCameraImage,
-      getArtCameraImage,
-      getArtCameraImage,
-      getArtCameraImage,
+      getOCRCameraImage,
       getArtCameraImage,
     ];
 
@@ -275,7 +278,7 @@ class _ACNHappState extends State<ACNHapp> {
     setState(() {
       _image = File(pickedFile!.path);
 
-      _predict();
+      _predictArt();
     });
   }
 
@@ -287,11 +290,11 @@ class _ACNHappState extends State<ACNHapp> {
     setState(() {
       _image = File(pickedFile.path);
 
-      _predict();
+      _predictArt();
     });
   }
 
-  void _predict() async {
+  void _predictArt() async {
     category = null;
     img.Image imageInput = img.decodeImage(_image!.readAsBytesSync())!;
 
@@ -407,6 +410,50 @@ class _ACNHappState extends State<ACNHapp> {
     
     
     
+  }
+
+  Future getOCRImage() async {
+    //prediction = "";
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+
+    textScanning = true;
+    setState(() {
+      _image = File(image!.path);
+
+      _predictOCR();
+    });
+  }
+
+  Future getOCRCameraImage() async {
+    //prediction = "";
+    final XFile? image = await picker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = File(image!.path);
+
+      _predictOCR();
+    });
+  }
+
+  void _predictOCR() async {
+    category = null;
+    img.Image imageInput = img.decodeImage(_image!.readAsBytesSync())!;
+
+    var uri = Uri.parse(uploadOCRURL);
+    var request = http.MultipartRequest("POST", uri);
+    request.files.add(new http.MultipartFile.fromBytes("file", _image!.readAsBytesSync(), filename: "Photo.jpg", contentType: new MediaType("image", "jpg")));
+
+    var response = await request.send();
+    Map ?parsed;
+    print(response.statusCode);
+    response.stream.transform(utf8.decoder).listen((value) {
+      print(value);
+      parsed = json.decode(value);
+
+      setState(() {
+        this.category = Category(parsed!["prediction"], 1.0);
+      });
+    });
   }
 
   void _onItemTapped(int value) {
