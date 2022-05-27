@@ -452,6 +452,36 @@ class _ACNHappState extends State<ACNHapp> {
 
       setState(() {
         this.category = Category(parsed!["prediction"], 1.0);
+
+        if(category != null) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) {
+              return Dialog(
+                elevation: 5,
+                backgroundColor: Colors.orange[100],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0)
+                ),
+                child: Container(
+                  height: 500,
+                  padding: EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text("Prediction",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24.0
+                        ))
+                    ],
+                  ),
+                ),
+              );
+            }
+          );
+        }
       });
     });
   }
