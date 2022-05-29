@@ -1,4 +1,5 @@
 import 'package:final_app/main.dart';
+import 'package:final_app/ui/insect_info.dart';
 import 'package:flutter/material.dart';
 import 'package:final_app/model/insects_model.dart';
 import 'package:final_app/util/get_available_month.dart';
@@ -7,8 +8,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class insectList extends StatefulWidget {
   final Function(dynamic) notifyParent;
   final List<bool> checks;
+  final List<bool> museumChecks;
   final Map<String, Insects> insects;
-  const insectList({Key? key, required this.checks, required this.insects, required this.notifyParent}) : super(key: key);
+  const insectList({Key? key, required this.checks, required this.insects, required this.notifyParent, required this.museumChecks}) : super(key: key);
 
   @override
   State<insectList> createState() => _insectListState();
@@ -16,6 +18,7 @@ class insectList extends StatefulWidget {
 
 class _insectListState extends State<insectList> {
   List<bool>? _checks;
+  List<bool>? _museumChecks;
   Map<String, Insects>? _insects;
   
   @override
@@ -24,6 +27,7 @@ class _insectListState extends State<insectList> {
     super.initState();
     _checks = widget.checks;
     _insects = widget.insects;
+    _museumChecks = widget.museumChecks;
   }
 
   @override
@@ -129,6 +133,11 @@ class _insectListState extends State<insectList> {
                     
                   ),
                 ),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => insectInfoPage(insect: _insects![_insects!.keys.elementAt(index)]!, insectChecks: _checks!, insectMuseumChecks: _museumChecks!, notifyParent: updateInsectChecks,)
+                  ));
+                },
               ),
             ),
           ),
@@ -158,6 +167,16 @@ class _insectListState extends State<insectList> {
 
     return result;
 
+  }
+
+  updateInsectChecks(dynamic childValue1, dynamic childValue2) {
+    Future.delayed(Duration(seconds:1), () async {
+      setState(() {
+      _checks = childValue1;
+      _museumChecks = childValue2;
+    });
+    });
+    
   }
 }
 

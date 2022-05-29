@@ -5,6 +5,7 @@ import 'package:final_app/network/network.dart';
 import 'package:final_app/ui/art_info.dart';
 import 'package:final_app/ui/art_list.dart';
 import 'package:final_app/ui/fish_list.dart';
+import 'package:final_app/ui/insect_info.dart';
 import 'package:final_app/ui/sea_list.dart';
 import 'package:flutter/material.dart';
 import 'package:final_app/main.dart';
@@ -156,6 +157,17 @@ class _ACNHappState extends State<ACNHapp> {
     "HeibayoFake",
   ];
 
+  //OUTDATED
+  static const List oldfishes = ['crucian_carp', 'goldfish', 'bitterling', 'pale_chub', 'dace', 'carp', 'koi', 'pop-eyed_goldfish', 'killifish', 'crawfish', 'soft-shelled_turtle', 'tadpole', 'frog', 'freshwater_goby', 'loach', 'catfish', 'giant_snakehead', 'bluegill', 'yellow_perch', 'black_bass', 'pike', 'pond_smelt', 'sweetfish', 'cherry_salmon', 'char', 'stringfish', 'salmon', 'king_salmon', 'mitten_crab', 'guppy', 'nibble_fish', 'angelfish', 'neon_tetra', 'piranha', 'arowana', 'dorado', 'gar', 'arapaima', 'saddled_bichir', 'sea_butterfly', 'sea_horse', 'clownfish', 'surgeonfish', 'butterfly_fish', 'napoleonfish', 'zebra_turkeyfish', 'blowfish', 'puffer_fish', 'horse_mackerel', 'barred_knifejaw', 'sea_bass', 'red_snapper', 'dab', 'olive_flounder', 'squid', 'moray_eel', 'ribbon_eel', 'football_fish', 'tuna', 'blue_marlin', 'giant_trevally', 'ray', 'ocean_sunfish', 'hammerhead_shark', 'great_white_shark', 'saw_shark', 'whale_shark', 'oarfish', 'coelacanth', 'sturgeon', 'tilapia', 'betta', 'snapping_turtle', 'golden_trout', 'rainbowfish', 'anchovy', 'mahi-mahi', 'suckerfish', 'barreleye', 'ranchu_goldfish'];
+  static const List oldinsects = ['brown_cicada', 'tiger_butterfly', 'rajah_brookes_birdwing', 'red_dragonfly', 'queen_alexandras_birdwing', 'pondskater', 'ant', 'pill_bug', 'wharf_roach', 'moth', 'diving_beetle', 'darner_dragonfly', 'goliath_beetle', 'fly', 'orchid_mantis', 'tiger_beetle', 'horned_hercules', 'evening_cicada', 'cyclommatus_stag', 'firefly', 'dung_beetle', 'rice_grasshopper', 'mosquito', 'mantis', 'stinkbug', 'citrus_long-horned_beetle', 'peacock_butterfly', 'snail', 'horned_dynastid', 'grasshopper', 'earth-boring_dung_beetle', 'horned_atlas', 'walking_leaf', 'cricket', 'giant_cicada', 'spider', 'agrias_butterfly', 'robust_cicada', 'bagworm', 'honeybee', 'miyama_stag', 'yellow_butterfly', 'common_butterfly', 'emperor_butterfly', 'centipede', 'walking_stick', 'rainbow_stag', 'saw_stag', 'flea', 'mole_cricket', 'banded_dragonfly', 'monarch_butterfly', 'giant_stag', 'golden_stag', 'scarab_beetle', 'scorpion', 'cicada_shell', 'bell_cricket', 'wasp', 'long_locust', 'jewel_beetle', 'tarantula', 'ladybug', 'migratory_locust', 'walker_cicada', 'violin_beetle', 'hermit_crab', 'atlas_moth', 'horned_elephant', 'common_bluebottle', 'paper_kite_butterfly', 'great_purple_emperor', 'drone_beetle', 'giraffe_stag', 'man-faced_stink_bug', 'madagascan_sunset_moth', 'blue_weevil_beetle', 'rosalia_batesi_beetle', 'giant_water_bug', 'damselfly'];
+  static const List oldsea = ['seaweed', 'sea_grapes', 'sea_cucumber', 'sea_pig', 'sea_star', 'sea_urchin', 'slate_pencil_urchin', 'sea_anemone', 'moon_jellyfish', 'sea_slug', 'pearl_oyster', 'mussel', 'oyster', 'scallop', 'whelk', 'turban_shell', 'abalone', 'gigas_giant_clam', 'chambered_nautilus', 'octopus', 'umbrella_octopus', 'vampire_squid', 'firefly_squid', 'gazami_crab', 'dungeness_crab', 'snow_crab', 'red_king_crab', 'acorn_barnacle', 'spider_crab', 'tiger_prawn', 'sweet_shrimp', 'mantis_shrimp', 'spiny_lobster', 'lobster', 'giant_isopod', 'horseshoe_crab', 'sea_pineapple', 'spotted_garden_eel', 'flatworm', 'venus_flower_basket'];
+
+
+  //NEW
+  static const List fishes = ['Funa', 'Kingyo', 'Tanago', 'Oikawa', 'Ugui', 'Koi', 'Nishikigoi', 'Demekin', 'Medaka', 'Zarigani', 'Suppon', 'Otamajakusi', 'Kaeru', 'Donko', 'Dojou', 'Namazu', 'Raigyo', 'Blueguill', 'Yellowparch', 'Blackbass', 'Paiku', 'Wakasagi', 'Ayu', 'Yamame', 'Ooiwana', 'Itou', 'Sake', 'Kingsalmon', 'Syanhaigani', 'Guppi', 'Dokutaafish', 'Angelfish', 'Neontetora', 'Pirania', 'Arowana', 'Dolado', 'Ga', 'Piraruku', 'Endorikerii', 'Kurione', 'Tatsunootoshigo', 'Kumanomi', 'Nanyouhagi', 'Chouchouuo', 'Naporeonfish', 'Minokasago', 'Fugu', 'Harisenbon', 'Aji', 'Ishidai', 'Suzuki', 'Tai', 'Karei', 'Hirame', 'Ika', 'Utsubo', 'Hanahigeutubo', 'Chouchinankou', 'Maguro', 'Kajiki', 'Rouninaji', 'Ei', 'Manbou', 'Shumokuzame', 'Same', 'Nokogirizame', 'Jinbeezame', 'Ryuuguunotukai', 'Sirakansu', 'Tyouzame', 'Thirapia', 'Beta', 'Kamitsukigame', 'GoldenTorauto', 'Rainbowfish', 'Antyobi', 'Shiira', 'Kobanzame', 'Demenigisu', 'Ranchu'];  
+  static const List insects = ['Aburazemi', 'Agehacho', 'Akaeritoribaneageha', 'Akiakane', 'Arekisandoratoribaneageha', 'Amenbo', 'Ari', 'Dangomushi', 'Funamushi', 'Ga', 'Gengorou', 'Ginyanma', 'Goraiasuohtsunohanamuguri', 'Hae', 'Hanakamakiri', 'Hanmyou', 'Herakuresuohkabuto', 'Higurashi', 'Hosoakakuwagata', 'Hotaru', 'Funkorogashi', 'Inago', 'Ka', 'Kamakiri', 'Kamemushi', 'Gomadarakamikiri', 'Karasuageha', 'Katatsumuri', 'Kabutomushi', 'Kirigirisu', 'Ohsenchikogane', 'Kohkasasuohkabuto', 'Konohamushi', 'Kohrogi', 'Kumazemi', 'Kumo', 'Miirotateha', 'Minminzemi', 'Minomushi', 'Mitsubachi', 'Miyamakuwagata', 'Monkicho', 'Monshirocho', 'Morufuocho', 'Mukade', 'Nanafushi', 'Nijiirokuwagata', 'Nokogirikuwagata', 'Nomi', 'Okera', 'Oniyanma', 'Ohkabamadara', 'Ohkuwagata', 'Ougononikuwagata', 'Purachinakogane', 'Sasori', 'Seminonukegara', 'Suzumushi', 'Hachi', 'Shoryobatta', 'Tamamushi', 'Taranchura', 'Tentoumushi', 'Tonosamabatta', 'Tsukutsukuhousi', 'Baiorinmushi', 'Yadokari', 'Yonagunisan', 'Zoukabuto', 'Aosujiageha', 'Ohgomamadara', 'Ohmurasaki', 'Kanabun', 'Girafanokogirikuwagata', 'Jinmenkamemushi', 'Nishikiohtsubamega', 'Housekizoumushi', 'Ruriboshikamikiri', 'Tagame', 'Itotonbo'];
+  static const List sea = ['Wakame', 'Umibudou', 'Namako', 'Senjunamako', 'Hitode', 'Uni', 'Paipuuni', 'Isogintyaku', 'Mizukurage', 'Umiushi', 'Akoyagai', 'Muhrugai', 'Kaki', 'Hotate', 'Baigai', 'Sazae', 'Awabi', 'Shakogai', 'Oumugai', 'Tako', 'Mendako', 'Koumoridako', 'Hotaruika', 'Gazami', 'DungenessCrab', 'Zuwaigani', 'Tarabagani', 'Fujitsubo', 'Takaashigani', 'Kurumaebi', 'Amaebi', 'Shako', 'Iseebi', 'Fish54', 'Daiougusokumushi', 'Kabutogani', 'Hoya', 'Chinanago', 'Hiramushi', 'Kairoudouketsu'];
+  
   bool textScanning = false;
 
   
@@ -164,8 +176,8 @@ class _ACNHappState extends State<ACNHapp> {
   final picker = ImagePicker();
 
   Category? category;
-  String uploadURL = 'http://192.168.1.43:5000/predict';
-  String uploadOCRURL = 'http://192.168.1.43:5000/predictocr';
+  String uploadURL = 'http://192.168.1.81:5000/predict';
+  String uploadOCRURL = 'http://192.168.1.81:5000/predictocr';
 
   @override
   void initState() {
@@ -181,11 +193,11 @@ class _ACNHappState extends State<ACNHapp> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _widgetOptions = <Widget>[
-    _isInsectLoaded ? insectList(insects:_insectObject!, checks:_insectChecks, notifyParent: refreshInsects,) : Center(child: const CircularProgressIndicator()),
+    _isInsectLoaded ? insectList(insects:_insectObject!, checks:_insectChecks, notifyParent: refreshInsects, museumChecks: _insectMuseumChecks,) : Center(child: const CircularProgressIndicator()),
     _isFishLoaded ? fishList(fishes:_fishObject!, checks:_fishChecks, notifyParent: refreshFishes,) : Center(child: const CircularProgressIndicator()),
     Container(child: Text("HOME"),),
     _isSeaLoaded ? seaList(sea:_seaObject!, checks:_seaChecks, notifyParent: refreshSea,) : Center(child: const CircularProgressIndicator()),
-    _isArtLoaded ? artList(notifyParent: refreshArt, checks: _artChecks, art: _artObject!) : Center(child: CircularProgressIndicator(),)
+    _isArtLoaded ? artList(notifyParent: refreshArt, checks: _artChecks, art: _artObject!, museumChecks: _artMuseumChecks,) : Center(child: CircularProgressIndicator(),)
     
   ];
 
@@ -474,7 +486,60 @@ class _ACNHappState extends State<ACNHapp> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 24.0
-                        ))
+                        )),
+                      fishes.contains(category!._label) ?
+                      Image.network("https://acnhcdn.com/latest/BookFishIcon/Fish${category!._label}Cropped.png", height: 300,)
+                      :
+                      insects.contains(category!._label) ?
+                      Image.network("https://acnhcdn.com/latest/BookInsectIcon/Insect${category!._label}Cropped.png", height: 300,)
+                      :
+                      Image.network("https://acnhcdn.com/latest/BookDiveFishIcon/DiveFish${category!._label}Cropped.png", height: 300,),
+                      
+                      fishes.contains(category!._label) ?
+                      Text(oldfishes.elementAt(fishes.indexOf(category!._label)).toString().replaceAll("_", " ").capitalizeFirstofEach)
+                      :
+                      insects.contains(category!._label) ?
+                      Text(oldinsects.elementAt(insects.indexOf(category!._label)).toString().replaceAll("_", " ").capitalizeFirstofEach)
+                      :
+                      Text(oldsea.elementAt(sea.indexOf(category!._label)).toString().replaceAll("_", " ").capitalizeFirstofEach),
+
+                      Text("Is this correct?",
+                        style: TextStyle(
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w100
+                      ),),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                        SizedBox(
+                          height: 35,
+                          width: 100,
+                          child: ElevatedButton(
+                          onPressed: (){
+                            print(_insectObject![oldinsects.elementAt(insects.indexOf(category!._label))]!.name.nameEUen);
+                            Navigator.of(context).pop();
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => insectInfoPage(insect: _insectObject![oldinsects.elementAt(insects.indexOf(category!._label))]!, insectChecks: _insectChecks, insectMuseumChecks: _insectMuseumChecks, notifyParent: updateInsectChecks,)
+                            )
+                            );
+                          },
+                          child: Text("Yes"),
+                          style: ButtonStyle(
+                            
+                            backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF91d7db))
+                          ),),
+                        ),
+                        
+                        SizedBox(width: 20.0,),
+                        ElevatedButton(
+                          onPressed: (){
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("No"),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(Colors.red[700]!)
+                          ),),
+                      ],),
                     ],
                   ),
                 ),
@@ -586,4 +651,36 @@ class _ACNHappState extends State<ACNHapp> {
     });
     
   }
+
+  updateFishChecks(dynamic childValue1, dynamic childValue2) {
+    Future.delayed(Duration(seconds:1), () async {
+      setState(() {
+      _fishChecks = childValue1;
+      _fishMuseumChecks = childValue2;
+    });
+    });
+    
+  }
+
+  updateInsectChecks(dynamic childValue1, dynamic childValue2) {
+    Future.delayed(Duration(seconds:1), () async {
+      setState(() {
+      _insectChecks = childValue1;
+      _insectMuseumChecks = childValue2;
+    });
+    });
+    
+  }
+
+  updateSeaChecks(dynamic childValue1, dynamic childValue2) {
+    Future.delayed(Duration(seconds:1), () async {
+      setState(() {
+      _seaChecks = childValue1;
+      _seaMuseumChecks = childValue2;
+    });
+    });
+    
+  }
+
+  
 }

@@ -26,70 +26,7 @@ LABEL_FILENAME = 'label_map.pbtxt'
 PATH_TO_LABELS = os.path.join(MODELS_DIR, os.path.join(MODEL_NAME, LABEL_FILENAME))
 
 eng_fish_list = [
-    'crucian_carp',
-    'goldfish',
-    'bitterling',
-    'pale_chub',
-    'dace',
-    'carp',
-    'koi',
-    'pop-eyed_goldfish',
-    'killifish',
-    'crawfish',
-    'soft-shelled_turtle',
-    'tadpole',
-    'frog',
-    'freshwater_goby',
-    'loach',
-    'catfish',
-    'giant_snakehead',
-    'bluegill',
-    'yellow_perch',
-    'black_bass',
-    'pike',
-    'pond_smelt',
-    'sweetfish',
-    'cherry_salmon',
-    'char',
-    'stringfish',
-    'salmon',
-    'king_salmon',
-    'mitten_crab',
-    'guppy',
-    'nibble_fish',
-    'angelfish',
-    'neon_tetra',
-    'piranha',
-    'arowana',
-    'dorado',
-    'gar',
-    'arapaima',
-    'saddled_bichir',
-    'sea_butterfly',
-    'sea_horse',
-    'clownfish',
-    'surgeonfish',
-    'butterfly_fish',
-    'napoleonfish',
-    'zebra_turkeyfish',
-    'blowfish',
-    'puffer_fish',
-    'horse_mackerel',
-    'barred_knifejaw',
-    'sea_bass',
-    'red_snapper',
-    'dab',
-    'olive_flounder',
-    'squid',
-    'moray_eel',
-    'ribbon_eel',
-    'football_fish',
-    'tuna',
-    'blue_marlin',
-    'giant_trevally',
-    'ray',
-    'ocean_sunfish',
-    'hammerhead_shark'
+    'Funa', 'Kingyo', 'Tanago', 'Oikawa', 'Ugui', 'Koi', 'Nishikigoi', 'Demekin', 'Medaka', 'Zarigani', 'Suppon', 'Otamajakusi', 'Kaeru', 'Donko', 'Dojou', 'Namazu', 'Raigyo', 'Blueguill', 'Yellowparch', 'Blackbass', 'Paiku', 'Wakasagi', 'Ayu', 'Yamame', 'Ooiwana', 'Itou', 'Sake', 'Kingsalmon', 'Syanhaigani', 'Guppi', 'Dokutaafish', 'Angelfish', 'Neontetora', 'Pirania', 'Arowana', 'Dolado', 'Ga', 'Piraruku', 'Endorikerii', 'Kurione', 'Tatsunootoshigo', 'Kumanomi', 'Nanyouhagi', 'Chouchouuo', 'Naporeonfish', 'Minokasago', 'Fugu', 'Harisenbon', 'Aji', 'Ishidai', 'Suzuki', 'Tai', 'Karei', 'Hirame', 'Ika', 'Utsubo', 'Hanahigeutubo', 'Chouchinankou', 'Maguro', 'Kajiki', 'Rouninaji', 'Ei', 'Manbou', 'Shumokuzame', 'Same', 'Nokogirizame', 'Jinbeezame', 'Ryuuguunotukai', 'Sirakansu', 'Tyouzame', 'Thirapia', 'Beta', 'Kamitsukigame', 'GoldenTorauto', 'Rainbowfish', 'Antyobi', 'Shiira', 'Kobanzame', 'Demenigisu', 'Ranchu'
 ]
 
 fish_list = ['carpín',
@@ -174,6 +111,8 @@ fish_list = ['carpín',
 'ranchú']
 
 
+eng_insect_list = ['Aburazemi', 'Agehacho', 'Akaeritoribaneageha', 'Akiakane', 'Arekisandoratoribaneageha', 'Amenbo', 'Ari', 'Dangomushi', 'Funamushi', 'Ga', 'Gengorou', 'Ginyanma', 'Goraiasuohtsunohanamuguri', 'Hae', 'Hanakamakiri', 'Hanmyou', 'Herakuresuohkabuto', 'Higurashi', 'Hosoakakuwagata', 'Hotaru', 'Funkorogashi', 'Inago', 'Ka', 'Kamakiri', 'Kamemushi', 'Gomadarakamikiri', 'Karasuageha', 'Katatsumuri', 'Kabutomushi', 'Kirigirisu', 'Ohsenchikogane', 'Kohkasasuohkabuto', 'Konohamushi', 'Kohrogi', 'Kumazemi', 'Kumo', 'Miirotateha', 'Minminzemi', 'Minomushi', 'Mitsubachi', 'Miyamakuwagata', 'Monkicho', 'Monshirocho', 'Morufuocho', 'Mukade', 'Nanafushi', 'Nijiirokuwagata', 'Nokogirikuwagata', 'Nomi', 'Okera', 'Oniyanma', 'Ohkabamadara', 'Ohkuwagata', 'Ougononikuwagata', 'Purachinakogane', 'Sasori', 'Seminonukegara', 'Suzumushi', 'Hachi', 'Shoryobatta', 'Tamamushi', 'Taranchura', 'Tentoumushi', 'Tonosamabatta', 'Tsukutsukuhousi', 'Baiorinmushi', 'Yadokari', 'Yonagunisan', 'Zoukabuto', 'Aosujiageha', 'Ohgomamadara', 'Ohmurasaki', 'Kanabun', 'Girafanokogirikuwagata', 'Jinmenkamemushi', 'Nishikiohtsubamega', 'Housekizoumushi', 'Ruriboshikamikiri', 'Tagame', 'Itotonbo']
+
 insect_list = ['cigarra marrón',
 'mariposa tigre',
 'mariposa alas de Brooke',
@@ -253,7 +192,12 @@ insect_list = ['cigarra marrón',
 'gorgojo azul',
 'escarabajo rosalia batesi',
 'chinche acuática gigante',
-'libélula damisela',]
+'libélula damisela']
+
+
+eng_sea_list = ['Wakame', 'Umibudou', 'Namako', 'Senjunamako', 'Hitode', 'Uni', 'Paipuuni', 'Isogintyaku', 'Mizukurage', 'Umiushi', 'Akoyagai', 'Muhrugai', 'Kaki', 'Hotate', 'Baigai', 'Sazae', 'Awabi', 'Shakogai', 'Oumugai', 'Tako', 'Mendako', 'Koumoridako', 'Hotaruika', 'Gazami', 'DungenessCrab', 'Zuwaigani', 'Tarabagani', 'Fujitsubo', 'Takaashigani', 'Kurumaebi', 'Amaebi', 'Shako', 'Iseebi', 'Fish54', 'Daiougusokumushi', 'Kabutogani', 'Hoya', 'Chinanago', 'Hiramushi', 'Kairoudouketsu']
+sea_list = ['alga wakame', 'uva de mar', 'pepino de mar', 'cerdo de mar', 'estrella de mar', 'erizo de mar', 'erizo lápiz de pizarra', 'anémona', 'medusa luna', 'babosa de mar', 'ostra perlera', 'mejillón', 'ostra', 'vieira', 'buccino', 'caracola espinosa', 'abulón', 'taclobo gigante', 'nautilo', 'pulpo', 'pulpo paraguas', 'calamar vampiro', 'calamar luciérnaga', 'cangrejo gazami', 'buey del Pacífico', 'cangrejo de nieve', 'cangrejo boreal', 'bellota de mar', 'cangrejo gigante japonés', 'langostino tigre', 'camarón boreal', 'langosta mantis', 'langosta espinosa', 'bogavante', 'isópodo gigante', 'cangrejo herradura', 'piña de mar', 'anguila jardinera', 'gusano políclado', 'canasta de flores de Venus']
+
 
 # Prevent GPU complete consumption
 gpus = tf.config.list_physical_devices('GPU')
@@ -353,19 +297,32 @@ def run_ocr(detections, image):
         print(texto)
         insect_predictions = [insect for insect in insect_list if insect in texto]
         fish_predictions = [insect for insect in fish_list if insect in texto]
+        sea_predictions = [sea for sea in sea_list if sea in texto]
 
         if insect_predictions:
             if len(insect_predictions) > 1:
                 result =  max(insect_predictions, key=len)
             else:
                 result = insect_predictions[0]
-
+            index = insect_list.index(result)
+            result = eng_insect_list[index]
                 
         if fish_predictions:
             if len(fish_predictions) > 1:
                 result = max(fish_predictions, key=len)
             else:
                 result = fish_predictions[0]
+            index = fish_list.index(result)
+            result = eng_fish_list[index]
+        
+        if sea_predictions:
+            if len(sea_predictions) > 1:
+                result = max(sea_predictions, key=len)
+            else:
+                result = sea_predictions[0]
+            index = sea_list.index(result)
+            result = eng_sea_list[index]
+            
         
         return result
 

@@ -1,5 +1,7 @@
 import 'package:final_app/main.dart';
 import 'package:final_app/model/art_model.dart';
+import 'package:final_app/ui/art_info.dart';
+import 'package:final_app/ui/insect_info.dart';
 import 'package:flutter/material.dart';
 import 'package:final_app/model/insects_model.dart';
 import 'package:final_app/util/get_available_month.dart';
@@ -8,8 +10,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class artList extends StatefulWidget {
   final Function(dynamic) notifyParent;
   final List<bool> checks;
+  final List<bool> museumChecks;
   final Map<String, Art> art;
-  artList({Key? key, required this.notifyParent, required this.checks, required this.art}) : super(key: key);
+  artList({Key? key, required this.notifyParent, required this.checks, required this.art, required this.museumChecks}) : super(key: key);
 
   @override
   State<artList> createState() => _artListState();
@@ -17,6 +20,7 @@ class artList extends StatefulWidget {
 
 class _artListState extends State<artList> {
   List<bool>? _checks;
+  List<bool>? _museumChecks;
   Map<String, Art>? _art;
 
   double opacityLevel = 1.0;
@@ -26,6 +30,7 @@ class _artListState extends State<artList> {
     super.initState();
     _checks = widget.checks;
     _art = widget.art;
+    _museumChecks = widget.museumChecks;
   }
 
   @override
@@ -130,6 +135,11 @@ class _artListState extends State<artList> {
                     
                   ),
                 ),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => artInfoPage(art: _art![_art!.keys.elementAt(index)]!, artChecks: _checks!, artMuseumChecks: _museumChecks!, notifyParent: updateArtChecks,)
+                  ));
+                },
                 ),
               ),
             ),
@@ -137,5 +147,15 @@ class _artListState extends State<artList> {
         )
       ],
     );
+  }
+
+  updateArtChecks(dynamic childValue1, dynamic childValue2) {
+    Future.delayed(Duration(seconds:1), () async {
+      setState(() {
+      _checks = childValue1;
+      _museumChecks = childValue2;
+    });
+    });
+    
   }
 }
