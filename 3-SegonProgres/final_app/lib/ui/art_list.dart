@@ -25,6 +25,8 @@ class _artListState extends State<artList> {
 
   double opacityLevel = 1.0;
 
+  
+
   @override
   void initState() {
     super.initState();
@@ -117,24 +119,41 @@ class _artListState extends State<artList> {
                       ]
                     ),
                   ),
-                trailing: Transform.scale(
-                  scale: 1.3,
-                  child: Checkbox(
-                    shape: CircleBorder(),
-                    activeColor: const Color(0xFF69d196),
-                    checkColor: Colors.orange[50],
-                    value: _checks![index],
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _checks![index] = value!;
-                        opacityLevel == 1.0 ? 0.5 : 1.0;
-                        print("Pressed ${index}");
-                        widget.notifyParent(_checks);
-                      });
-                    },
-                    
-                  ),
-                ),
+                  trailing: Transform.scale(
+                    scale: 1.2,
+                    child: Wrap(
+                    spacing: -10,
+                    children: <Widget>[
+                      Checkbox(
+                        shape: CircleBorder(),
+                        activeColor: const Color(0xFF69d196),
+                        checkColor: Colors.orange[50],
+                        value: _checks![index],
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _checks![index] = value!;
+                            opacityLevel == 1.0 ? 0.5 : 1.0;
+                            print("Pressed ${index}");
+                            widget.notifyParent(_checks);
+                          });
+                        }, 
+                      ),
+                      Checkbox(
+                        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                        activeColor: Colors.blueAccent[700],
+                        checkColor: Colors.orange[50],
+                        value: _museumChecks![index],
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _museumChecks![index] = value!;
+                            opacityLevel == 1.0 ? 0.5 : 1.0;
+                            print("Pressed ${index}");
+                            widget.notifyParent(_museumChecks);
+                          });
+                        },
+                      ),
+                    ],
+                  ),),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => artInfoPage(art: _art![_art!.keys.elementAt(index)]!, artChecks: _checks!, artMuseumChecks: _museumChecks!, notifyParent: updateArtChecks,)

@@ -117,22 +117,38 @@ class _insectListState extends State<insectList> {
                           )
                         ])),
                 trailing: Transform.scale(
-                  scale: 1.3,
-                  child: Checkbox(
-                    shape: CircleBorder(),
-                    activeColor: const Color(0xFF69d196),
-                    checkColor: Colors.orange[50],
-                    value: _checks![index],
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _checks![index] = value!;
-                        print("Pressed ${index}");
-                        widget.notifyParent(_checks);
-                      });
-                    },
-                    
-                  ),
-                ),
+                  scale: 1.2,
+                  child: Wrap(
+                  spacing: -10,
+                  children: <Widget>[
+                    Checkbox(
+                      shape: CircleBorder(),
+                      activeColor: const Color(0xFF69d196),
+                      checkColor: Colors.orange[50],
+                      value: _checks![index],
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _checks![index] = value!;
+                          print("Pressed ${index}");
+                          widget.notifyParent(_checks);
+                        });
+                      }, 
+                    ),
+                    Checkbox(
+                      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      activeColor: Colors.blueAccent[700],
+                      checkColor: Colors.orange[50],
+                      value: _museumChecks![index],
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _museumChecks![index] = value!;
+                          print("Pressed ${index}");
+                          widget.notifyParent(_museumChecks);
+                        });
+                      },
+                    ),
+                  ],
+                ),),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => insectInfoPage(insect: _insects![_insects!.keys.elementAt(index)]!, insectChecks: _checks!, insectMuseumChecks: _museumChecks!, notifyParent: updateInsectChecks,)

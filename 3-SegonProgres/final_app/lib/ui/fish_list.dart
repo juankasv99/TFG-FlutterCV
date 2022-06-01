@@ -1,17 +1,18 @@
 import 'package:final_app/main.dart';
 import 'package:final_app/model/fishes_model.dart';
+import 'package:final_app/ui/fish_info.dart';
 import 'package:flutter/material.dart';
 import 'package:final_app/model/insects_model.dart';
 import 'package:final_app/util/get_available_month.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class fishList extends StatefulWidget {
-
   final Function(dynamic) notifyParent;
   final List<bool> checks;
+  final List<bool> museumChecks;
   final Map<String, Fishes> fishes;
 
-  fishList({Key? key, required this.notifyParent, required this.checks, required this.fishes}) : super(key: key);
+  fishList({Key? key, required this.notifyParent, required this.checks, required this.fishes, required this.museumChecks}) : super(key: key);
 
   @override
   State<fishList> createState() => _fishListState();
@@ -19,6 +20,7 @@ class fishList extends StatefulWidget {
 
 class _fishListState extends State<fishList> {
   List<bool>? _checks;
+  List<bool>? _museumChecks;
   Map<String, Fishes>? _fishes;
 
   @override
@@ -26,6 +28,7 @@ class _fishListState extends State<fishList> {
     super.initState();
     _checks = widget.checks;
     _fishes = widget.fishes;
+    _museumChecks = widget.museumChecks;
   }
 
   @override
@@ -111,23 +114,43 @@ class _fishListState extends State<fishList> {
                                           fontWeight: FontWeight.bold),),
                   ])),
                 trailing: Transform.scale(
-                  scale: 1.3,
-                  child: Checkbox(
-                    shape: CircleBorder(),
-                    activeColor: const Color(0xFF69d196),
-                    checkColor: Colors.orange[50],
-                    value: _checks![index],
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _checks![index] = value!;
-                        print("Pressed ${index}");
-                        widget.notifyParent(_checks);
-                      });
-                    },
-                    
-                  ),
-                ),
-
+                  scale: 1.2,
+                  child: Wrap(
+                  spacing: -10,
+                  children: <Widget>[
+                    Checkbox(
+                      shape: CircleBorder(),
+                      activeColor: const Color(0xFF69d196),
+                      checkColor: Colors.orange[50],
+                      value: _checks![index],
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _checks![index] = value!;
+                          print("Pressed ${index}");
+                          widget.notifyParent(_checks);
+                        });
+                      }, 
+                    ),
+                    Checkbox(
+                      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      activeColor: Colors.blueAccent[700],
+                      checkColor: Colors.orange[50],
+                      value: _museumChecks![index],
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _museumChecks![index] = value!;
+                          print("Pressed ${index}");
+                          widget.notifyParent(_museumChecks);
+                        });
+                      },
+                    ),
+                  ],
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => fishInfoPage(notifyParent: updateFishChecks, fish: _fishes![_fishes!.keys.elementAt(index)]!, fishChecks: _checks!, fishMuseumChecks: _museumChecks!)
+                    ));
+                },
                 )
               )
             )
@@ -135,6 +158,17 @@ class _fishListState extends State<fishList> {
         ),
       ],
     );
+  }
+
+  buildShowDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder:  (BuildContext context) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      });
   }
 
   String getAvailableHours(Fishes fishes) {
@@ -145,5 +179,15 @@ class _fishListState extends State<fishList> {
     }
 
     return result;
+  }
+
+  updateFishChecks(dynamic childValue1, dynamic childValue2) {
+    Future.delayed(Duration(seconds:1), () async {
+      setState(() {
+      _checks = childValue1;
+      _museumChecks = childValue2;
+    });
+    });
+    
   }
 }

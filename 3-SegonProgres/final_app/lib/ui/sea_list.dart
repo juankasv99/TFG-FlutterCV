@@ -1,6 +1,7 @@
 import 'package:final_app/main.dart';
 import 'package:final_app/model/fishes_model.dart';
 import 'package:final_app/model/sea_model.dart';
+import 'package:final_app/ui/sea_info.dart';
 import 'package:flutter/material.dart';
 import 'package:final_app/model/insects_model.dart';
 import 'package:final_app/util/get_available_month.dart';
@@ -9,9 +10,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class seaList extends StatefulWidget {
   final Function(dynamic) notifyParent;
   final List<bool> checks;
+  final List<bool> museumChecks;
   final Map<String, Sea> sea;
 
-  seaList({Key? key, required this.notifyParent, required this.checks, required this.sea}) : super(key: key);
+  seaList({Key? key, required this.notifyParent, required this.checks, required this.sea, required this.museumChecks}) : super(key: key);
 
   @override
   State<seaList> createState() => _seaListState();
@@ -19,6 +21,7 @@ class seaList extends StatefulWidget {
 
 class _seaListState extends State<seaList> {
   List<bool>? _checks;
+  List<bool>? _museumChecks;
   Map<String, Sea>? _sea;
 
   @override
@@ -26,6 +29,7 @@ class _seaListState extends State<seaList> {
     super.initState();
     _checks = widget.checks;
     _sea = widget.sea;
+    _museumChecks = widget.museumChecks;
   }
 
   @override
@@ -79,7 +83,7 @@ class _seaListState extends State<seaList> {
                           TextSpan(
                             text: " " + getAvailableMonth(_sea![_sea!.keys.elementAt(index)]!) + "\n",
                             style: TextStyle(
-                                            
+                                            letterSpacing: -0.5,
                                             color: const Color(0xFF69d196),
                                             fontSize: 12.0,
                                             fontWeight: FontWeight.bold)
@@ -92,8 +96,9 @@ class _seaListState extends State<seaList> {
                                         text: " " +
                                             getAvailableHours(_sea![
                                                 _sea!.keys
-                                                    .elementAt(index)]!) + "      ",
+                                                    .elementAt(index)]!) + "     ",
                                         style: TextStyle(
+                                          letterSpacing: -0.5,
                                           height: 1.75,
                                           color: const Color(0xFF65d5db),
                                           fontSize: 12.0,
@@ -105,29 +110,49 @@ class _seaListState extends State<seaList> {
                           TextSpan(
                                         text:
                                           _sea![_sea!.keys.elementAt(index)]!.price.toString(),
-                                        style: TextStyle( 
+                                        style: TextStyle(
+                                          letterSpacing: -0.5,
                                           color: Colors.red[700],
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.bold),),
                   ])),
                 trailing: Transform.scale(
-                  scale: 1.3,
-                  child: Checkbox(
-                    shape: CircleBorder(),
-                    activeColor: const Color(0xFF69d196),
-                    checkColor: Colors.orange[50],
-                    value: _checks![index],
-                    onChanged: (bool? value) {
-                      setState(() {
-                        _checks![index] = value!;
-                        print("Pressed ${index}");
-                        widget.notifyParent(_checks);
-                      });
-                    },
-                    
-                  ),
-                ),
-
+                  scale: 1.2,
+                  child: Wrap(
+                  spacing: -10,
+                  children: <Widget>[
+                    Checkbox(
+                      shape: CircleBorder(),
+                      activeColor: const Color(0xFF69d196),
+                      checkColor: Colors.orange[50],
+                      value: _checks![index],
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _checks![index] = value!;
+                          print("Pressed ${index}");
+                          widget.notifyParent(_checks);
+                        });
+                      }, 
+                    ),
+                    Checkbox(
+                      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                      activeColor: Colors.blueAccent[700],
+                      checkColor: Colors.orange[50],
+                      value: _museumChecks![index],
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _museumChecks![index] = value!;
+                          print("Pressed ${index}");
+                          widget.notifyParent(_museumChecks);
+                        });
+                      },
+                    ),
+                  ],
+                ),),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => seaInfoPage(sea: _sea![_sea!.keys.elementAt(index)]!, seaChecks: _checks!, seaMuseumChecks: _museumChecks!, notifyParent: updateSeaChecks,)));
+                },
                 )
               )
             )
@@ -135,6 +160,17 @@ class _seaListState extends State<seaList> {
         ),
       ],
     );
+  }
+
+  buildShowDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder:  (BuildContext context) {
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      });
   }
 
   String getAvailableHours(Sea sea) {
@@ -145,5 +181,15 @@ class _seaListState extends State<seaList> {
     }
 
     return result;
+  }
+
+  updateSeaChecks(dynamic childValue1, dynamic childValue2) {
+    Future.delayed(Duration(seconds:1), () async {
+      setState(() {
+      _checks = childValue1;
+      _museumChecks = childValue2;
+    });
+    });
+    
   }
 }

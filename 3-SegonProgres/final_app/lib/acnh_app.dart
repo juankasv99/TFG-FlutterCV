@@ -4,8 +4,10 @@ import 'package:final_app/model/sea_model.dart';
 import 'package:final_app/network/network.dart';
 import 'package:final_app/ui/art_info.dart';
 import 'package:final_app/ui/art_list.dart';
+import 'package:final_app/ui/fish_info.dart';
 import 'package:final_app/ui/fish_list.dart';
 import 'package:final_app/ui/insect_info.dart';
+import 'package:final_app/ui/sea_info.dart';
 import 'package:final_app/ui/sea_list.dart';
 import 'package:flutter/material.dart';
 import 'package:final_app/main.dart';
@@ -18,6 +20,7 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'dart:convert';
+import 'package:percent_indicator/percent_indicator.dart';
 
 import 'package:final_app/model/insects_model.dart';
 
@@ -170,6 +173,11 @@ class _ACNHappState extends State<ACNHapp> {
   
   bool textScanning = false;
 
+  int _insectCheckCount = 0;
+  int _fishCheckCount = 0;
+  int _seaCheckCount = 0;
+  int _artCheckCount = 0;
+
   
 
   File? _image;
@@ -194,12 +202,16 @@ class _ACNHappState extends State<ACNHapp> {
   Widget build(BuildContext context) {
     List<Widget> _widgetOptions = <Widget>[
     _isInsectLoaded ? insectList(insects:_insectObject!, checks:_insectChecks, notifyParent: refreshInsects, museumChecks: _insectMuseumChecks,) : Center(child: const CircularProgressIndicator()),
-    _isFishLoaded ? fishList(fishes:_fishObject!, checks:_fishChecks, notifyParent: refreshFishes,) : Center(child: const CircularProgressIndicator()),
+    _isFishLoaded ? fishList(fishes:_fishObject!, checks:_fishChecks, notifyParent: refreshFishes, museumChecks: _fishMuseumChecks,) : Center(child: const CircularProgressIndicator()),
     Container(child: Text("HOME"),),
-    _isSeaLoaded ? seaList(sea:_seaObject!, checks:_seaChecks, notifyParent: refreshSea,) : Center(child: const CircularProgressIndicator()),
+    _isSeaLoaded ? seaList(sea:_seaObject!, checks:_seaChecks, notifyParent: refreshSea, museumChecks: _seaMuseumChecks,) : Center(child: const CircularProgressIndicator(),),
     _isArtLoaded ? artList(notifyParent: refreshArt, checks: _artChecks, art: _artObject!, museumChecks: _artMuseumChecks,) : Center(child: CircularProgressIndicator(),)
-    
   ];
+
+    _insectCheckCount = _insectChecks.where((item) => item == true).length;
+    _fishCheckCount = _fishChecks.where((item) => item == true).length;
+    _seaCheckCount = _seaChecks.where((item) => item == true).length;
+    _artCheckCount = _artChecks.where((item) => item == true).length;
 
     List<Function?> galleryFunctions = [
       getOCRImage,
@@ -217,12 +229,87 @@ class _ACNHappState extends State<ACNHapp> {
       getArtCameraImage,
     ];
 
+    List<Widget> progressIndicator = [
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[ 
+        //SizedBox(height: 5,),
+          LinearPercentIndicator(
+            
+            width: 130,
+            lineHeight: 14,
+            linearStrokeCap: LinearStrokeCap.roundAll,
+            percent: (_insectCheckCount / 80),
+            backgroundColor: Colors.white60,
+            progressColor: Colors.white,
+            center: Text("${_insectCheckCount}/80", style: TextStyle(color: Colors.black38, fontSize: 12)),
+      ),
+      //SizedBox(height:5),
+      //Text("${_insectCheckCount}/80", style: TextStyle(color: Colors.white, fontSize: 12)),
+      ]),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[ 
+        //SizedBox(height: 5,),
+          LinearPercentIndicator(
+            
+            width: 130,
+            lineHeight: 14,
+            linearStrokeCap: LinearStrokeCap.roundAll,
+            percent: (_fishCheckCount / 80),
+            backgroundColor: Colors.white60,
+            progressColor: Colors.white,
+            center: Text("${_fishCheckCount}/80", style: TextStyle(color: Colors.black38, fontSize: 12)),
+      ),
+      //SizedBox(height:5),
+      //Text("${_insectCheckCount}/80", style: TextStyle(color: Colors.white, fontSize: 12)),
+      ]),
+      SizedBox(height:1),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[ 
+        //SizedBox(height: 5,),
+          LinearPercentIndicator(
+            
+            width: 130,
+            lineHeight: 14,
+            linearStrokeCap: LinearStrokeCap.roundAll,
+            percent: (_seaCheckCount / 40),
+            backgroundColor: Colors.white60,
+            progressColor: Colors.white,
+            center: Text("${_seaCheckCount}/40", style: TextStyle(color: Colors.black38, fontSize: 12)),
+      ),
+      //SizedBox(height:5),
+      //Text("${_insectCheckCount}/80", style: TextStyle(color: Colors.white, fontSize: 12)),
+      ]),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[ 
+        //SizedBox(height: 5,),
+          LinearPercentIndicator(
+            
+            width: 130,
+            lineHeight: 14,
+            linearStrokeCap: LinearStrokeCap.roundAll,
+            percent: (_artCheckCount / 43),
+            backgroundColor: Colors.white60,
+            progressColor: Colors.white,
+            center: Text("${_artCheckCount}/43", style: TextStyle(color: Colors.black38, fontSize: 12)),
+      ),
+      //SizedBox(height:5),
+      //Text("${_insectCheckCount}/80", style: TextStyle(color: Colors.white, fontSize: 12)),
+      ]),
+    ];
+
 
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: const Color(0xFF94cead),
         title: Text(_selectedIndexName),
+        actions: <Widget>[
+          progressIndicator[_selectedIndex]
+        ],
       ),
 
       //_isInsectLoaded ? insectList(_insectObject, _insectChecks) : Center(child: const CircularProgressIndicator()),
@@ -345,9 +432,9 @@ class _ACNHappState extends State<ACNHapp> {
                     ),),
                   //category!._label.contains("Fake") ?  Image.network(_artObject![category!._label]!.artFakeUri!) : Image.network(_artObject![category!._label]!.artUri!),
                   statues.contains(category!._label) ?
-                  Image.network("https://acnhcdn.com/latest/FtrIcon/FtrSculpture${category!.label}.png")
+                  Image.network("https://acnhcdn.com/latest/FtrIcon/FtrSculpture${category!.label}.png", height: 300,)
                   :
-                  Image.network("https://acnhcdn.com/art/FtrArt${category!.label}.png"),
+                  Image.network("https://acnhcdn.com/art/FtrArt${category!.label}.png", height: 300,),
                   category!._label.contains("Fake") ?
                   RichText(text: TextSpan(
                     children: [
@@ -466,8 +553,7 @@ class _ACNHappState extends State<ACNHapp> {
         this.category = Category(parsed!["prediction"], 1.0);
 
         if(category != null) {
-          showDialog(
-            context: context,
+          showDialog(            context: context,
             barrierDismissible: false,
             builder: (context) {
               return Dialog(
@@ -487,13 +573,16 @@ class _ACNHappState extends State<ACNHapp> {
                           fontWeight: FontWeight.bold,
                           fontSize: 24.0
                         )),
+                      SizedBox(height: 5,),
+                      
                       fishes.contains(category!._label) ?
                       Image.network("https://acnhcdn.com/latest/BookFishIcon/Fish${category!._label}Cropped.png", height: 300,)
                       :
                       insects.contains(category!._label) ?
-                      Image.network("https://acnhcdn.com/latest/BookInsectIcon/Insect${category!._label}Cropped.png", height: 300,)
+                      Image.network("https://acnhcdn.com/latest/BookInsectIcon/Insect${category!._label}Cropped.png", height: 300)
                       :
-                      Image.network("https://acnhcdn.com/latest/BookDiveFishIcon/DiveFish${category!._label}Cropped.png", height: 300,),
+                      Image.network("https://acnhcdn.com/latest/BookDiveFishIcon/DiveFish${category!._label}Cropped.png", height: 300),
+                      SizedBox(height: 5,),
                       
                       fishes.contains(category!._label) ?
                       Text(oldfishes.elementAt(fishes.indexOf(category!._label)).toString().replaceAll("_", " ").capitalizeFirstofEach)
@@ -502,12 +591,15 @@ class _ACNHappState extends State<ACNHapp> {
                       Text(oldinsects.elementAt(insects.indexOf(category!._label)).toString().replaceAll("_", " ").capitalizeFirstofEach)
                       :
                       Text(oldsea.elementAt(sea.indexOf(category!._label)).toString().replaceAll("_", " ").capitalizeFirstofEach),
-
+                
+                      SizedBox(height: 5,),
+                
                       Text("Is this correct?",
                         style: TextStyle(
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.w100
                       ),),
+                      SizedBox(height: 5,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -516,12 +608,33 @@ class _ACNHappState extends State<ACNHapp> {
                           width: 100,
                           child: ElevatedButton(
                           onPressed: (){
-                            print(_insectObject![oldinsects.elementAt(insects.indexOf(category!._label))]!.name.nameEUen);
-                            Navigator.of(context).pop();
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => insectInfoPage(insect: _insectObject![oldinsects.elementAt(insects.indexOf(category!._label))]!, insectChecks: _insectChecks, insectMuseumChecks: _insectMuseumChecks, notifyParent: updateInsectChecks,)
-                            )
-                            );
+                            if(fishes.contains(category!._label))
+                              {
+                                //fishes
+                                print(_fishObject![oldfishes.elementAt(fishes.indexOf(category!._label))]!.name.nameEUen);
+                                Navigator.of(context).pop();
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => fishInfoPage(fish: _fishObject![oldfishes.elementAt(fishes.indexOf(category!._label))]!, fishChecks: _fishChecks, fishMuseumChecks: _fishMuseumChecks, notifyParent: updateFishChecks,)
+                                ));
+                              }
+                            else {
+                              if(insects.contains(category!._label)) {
+                                //insects
+                                print(_insectObject![oldinsects.elementAt(insects.indexOf(category!._label))]!.name.nameEUen);
+                                Navigator.of(context).pop();
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => insectInfoPage(insect: _insectObject![oldinsects.elementAt(insects.indexOf(category!._label))]!, insectChecks: _insectChecks, insectMuseumChecks: _insectMuseumChecks, notifyParent: updateInsectChecks,)
+                                ));
+                              } else {
+                                //sea
+                                print(_seaObject![oldsea.elementAt(sea.indexOf(category!._label))]!.name.nameEUen);
+                                Navigator.of(context).pop();
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => seaInfoPage(sea: _seaObject![oldsea.elementAt(sea.indexOf(category!._label))]!, seaChecks: _seaChecks, seaMuseumChecks: _seaMuseumChecks, notifyParent: updateSeaChecks,)
+                                ));
+                              }
+                            }
+                            
                           },
                           child: Text("Yes"),
                           style: ButtonStyle(
@@ -585,6 +698,8 @@ class _ACNHappState extends State<ACNHapp> {
   refreshInsects(dynamic childValue) {
     setState(() {
       _insectChecks = childValue;
+      _insectCheckCount = _insectChecks.where((item) => item == true).length;
+    
     });
   }
   
@@ -603,6 +718,8 @@ class _ACNHappState extends State<ACNHapp> {
   refreshFishes(dynamic childValue) {
     setState(() {
       _fishChecks = childValue;
+      _fishCheckCount = _fishChecks.where((item) => item == true).length;
+    
     });
   }
   
@@ -621,6 +738,8 @@ class _ACNHappState extends State<ACNHapp> {
   refreshSea(dynamic childValue) {
     setState(() {
       _seaChecks = childValue;
+      _seaCheckCount = _seaChecks.where((item) => item == true).length;
+    
     });
   }
   
@@ -639,6 +758,7 @@ class _ACNHappState extends State<ACNHapp> {
   refreshArt(dynamic childValue) {
     setState(() {
       _artChecks = childValue;
+      _artCheckCount = _artChecks.where((item) => item == true).length;
     });
   }
 
