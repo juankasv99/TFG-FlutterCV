@@ -6,6 +6,7 @@ import 'package:final_app/ui/art_info.dart';
 import 'package:final_app/ui/art_list.dart';
 import 'package:final_app/ui/fish_info.dart';
 import 'package:final_app/ui/fish_list.dart';
+import 'package:final_app/ui/homepage.dart';
 import 'package:final_app/ui/insect_info.dart';
 import 'package:final_app/ui/sea_info.dart';
 import 'package:final_app/ui/sea_list.dart';
@@ -23,6 +24,7 @@ import 'dart:convert';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import 'package:final_app/model/insects_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class Category {
@@ -55,9 +57,17 @@ class ACNHapp extends StatefulWidget {
 
 class _ACNHappState extends State<ACNHapp> {
 
+    static const Map<int, String> titlesInIndex = {
+    0: "Insects",
+    1: "Fishes",
+    2: "Home",
+    3: "Deep-Sea",
+    4: "Art"
+  };
 
-  int _selectedIndex = 0;
-  String _selectedIndexName = "Insects";
+
+  int _selectedIndex = 2;
+  String _selectedIndexName = "Home";
 
   Map<String, Insects>? _insectObject;
   Map<String, Fishes>? _fishObject;
@@ -77,14 +87,6 @@ class _ACNHappState extends State<ACNHapp> {
   List<bool> _seaMuseumChecks = List.filled(40, false);
   List<bool> _artChecks = List.filled(43, false);
   List<bool> _artMuseumChecks = List.filled(43, false);
-
-  static const Map<int, String> titlesInIndex = {
-    0: "Insects",
-    1: "Fishes",
-    2: "Home",
-    3: "Deep-Sea",
-    4: "Art"
-  };
 
   static const List artPredictionNames = [
     
@@ -187,6 +189,8 @@ class _ACNHappState extends State<ACNHapp> {
   String uploadURL = 'http://192.168.1.81:5000/predict';
   String uploadOCRURL = 'http://192.168.1.81:5000/predictocr';
 
+  var sp;
+
   @override
   void initState() {
     super.initState();
@@ -194,6 +198,11 @@ class _ACNHappState extends State<ACNHapp> {
     _fishObject = getFishes();
     _seaObject = getSea();
     _artObject = getArt();
+    SharedPreferences.getInstance().then((value) {
+      sp = value;
+      _getChecks();
+    });
+    
   }
 
   
@@ -203,7 +212,7 @@ class _ACNHappState extends State<ACNHapp> {
     List<Widget> _widgetOptions = <Widget>[
     _isInsectLoaded ? insectList(insects:_insectObject!, checks:_insectChecks, notifyParent: refreshInsects, museumChecks: _insectMuseumChecks,) : Center(child: const CircularProgressIndicator()),
     _isFishLoaded ? fishList(fishes:_fishObject!, checks:_fishChecks, notifyParent: refreshFishes, museumChecks: _fishMuseumChecks,) : Center(child: const CircularProgressIndicator()),
-    Container(child: Text("HOME"),),
+    !(_isArtLoaded && _isFishLoaded && _isInsectLoaded && _isSeaLoaded) ? Center(child: CircularProgressIndicator()) : homePage(artChecks: _artChecks, artMuseumChecks: _artMuseumChecks, arts: _artObject!, insectChecks: _insectChecks, insectMuseumChecks: _insectMuseumChecks, insects: _insectObject!, fishChecks: _fishChecks, fishMuseumChecks: _fishMuseumChecks, fishes: _fishObject!, seaChecks: _seaChecks, seaMuseumChecks: _seaMuseumChecks, sea: _seaObject!,),
     _isSeaLoaded ? seaList(sea:_seaObject!, checks:_seaChecks, notifyParent: refreshSea, museumChecks: _seaMuseumChecks,) : Center(child: const CircularProgressIndicator(),),
     _isArtLoaded ? artList(notifyParent: refreshArt, checks: _artChecks, art: _artObject!, museumChecks: _artMuseumChecks,) : Center(child: CircularProgressIndicator(),)
   ];
@@ -695,10 +704,12 @@ class _ACNHappState extends State<ACNHapp> {
     });
   } 
 
-  refreshInsects(dynamic childValue) {
+  refreshInsects(dynamic childValue, dynamic childValue2) {
     setState(() {
       _insectChecks = childValue;
+      _insectMuseumChecks = childValue2;
       _insectCheckCount = _insectChecks.where((item) => item == true).length;
+      _saveChecks();
     
     });
   }
@@ -715,10 +726,12 @@ class _ACNHappState extends State<ACNHapp> {
     });
   }
 
-  refreshFishes(dynamic childValue) {
+  refreshFishes(dynamic childValue, dynamic childValue2) {
     setState(() {
       _fishChecks = childValue;
+      _fishMuseumChecks = childValue2;
       _fishCheckCount = _fishChecks.where((item) => item == true).length;
+      _saveChecks();
     
     });
   }
@@ -735,10 +748,12 @@ class _ACNHappState extends State<ACNHapp> {
     });
   }
 
-  refreshSea(dynamic childValue) {
+  refreshSea(dynamic childValue, dynamic childValue2) {
     setState(() {
       _seaChecks = childValue;
+      _seaMuseumChecks = childValue2;
       _seaCheckCount = _seaChecks.where((item) => item == true).length;
+      _saveChecks();
     
     });
   }
@@ -755,10 +770,12 @@ class _ACNHappState extends State<ACNHapp> {
     });
   }
 
-  refreshArt(dynamic childValue) {
+  refreshArt(dynamic childValue, dynamic childValue2) {
     setState(() {
       _artChecks = childValue;
+      _artMuseumChecks = childValue2;
       _artCheckCount = _artChecks.where((item) => item == true).length;
+      _saveChecks();
     });
   }
 
@@ -767,6 +784,7 @@ class _ACNHappState extends State<ACNHapp> {
       setState(() {
       _artChecks = childValue1;
       _artMuseumChecks = childValue2;
+      _saveChecks();
     });
     });
     
@@ -777,6 +795,7 @@ class _ACNHappState extends State<ACNHapp> {
       setState(() {
       _fishChecks = childValue1;
       _fishMuseumChecks = childValue2;
+      _saveChecks();
     });
     });
     
@@ -787,8 +806,10 @@ class _ACNHappState extends State<ACNHapp> {
       setState(() {
       _insectChecks = childValue1;
       _insectMuseumChecks = childValue2;
+      _saveChecks();
     });
     });
+    _saveChecks();
     
   }
 
@@ -797,9 +818,51 @@ class _ACNHappState extends State<ACNHapp> {
       setState(() {
       _seaChecks = childValue1;
       _seaMuseumChecks = childValue2;
+      _saveChecks();
     });
     });
     
+  }
+
+  Future<void> _getChecks() async {
+    //SharedPreferences.setMockInitialValues({});
+    final prefs = sp;
+
+    if(!prefs.containsKey('artChecks')) {
+      return;
+    }
+
+    setState(() {
+      _artChecks = List<bool>.from(json.decode(prefs.getString('artChecks')!));
+      _insectChecks = List<bool>.from(json.decode(prefs.getString('insectChecks')!));
+      _fishChecks = List<bool>.from(json.decode(prefs.getString('fishChecks')!));
+      _seaChecks = List<bool>.from(json.decode(prefs.getString('seaChecks')!));
+      _artMuseumChecks = List<bool>.from(json.decode(prefs.getString('artMuseumChecks')!));
+      _insectMuseumChecks = List<bool>.from(json.decode(prefs.getString('insectMuseumChecks')!));
+      _fishMuseumChecks = List<bool>.from(json.decode(prefs.getString('fishMuseumChecks')!));
+      _seaMuseumChecks = List<bool>.from(json.decode(prefs.getString('seaMuseumChecks')!));
+
+    });
+  }
+
+  Future<void> _saveChecks() async {
+    final prefs = await SharedPreferences.getInstance();
+    var jsn = json.encode(_artChecks);
+    prefs.setString("artChecks", jsn);
+    jsn = json.encode(_insectChecks);
+    prefs.setString("insectChecks", jsn);
+    jsn = json.encode(_fishChecks);
+    prefs.setString("fishChecks", jsn);
+    jsn = json.encode(_seaChecks);
+    prefs.setString("seaChecks", jsn);
+    jsn = json.encode(_artMuseumChecks);
+    prefs.setString("artMuseumChecks", jsn);
+    jsn = json.encode(_insectMuseumChecks);
+    prefs.setString("insectMuseumChecks", jsn);
+    jsn = json.encode(_fishMuseumChecks);
+    prefs.setString("fishMuseumChecks", jsn);
+    jsn = json.encode(_seaMuseumChecks);
+    prefs.setString("seaMuseumChecks", jsn);
   }
 
   

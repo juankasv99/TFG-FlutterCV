@@ -8,7 +8,7 @@ import 'package:final_app/util/get_available_month.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class seaList extends StatefulWidget {
-  final Function(dynamic) notifyParent;
+  final Function(dynamic, dynamic) notifyParent;
   final List<bool> checks;
   final List<bool> museumChecks;
   final Map<String, Sea> sea;
@@ -130,7 +130,7 @@ class _seaListState extends State<seaList> {
                         setState(() {
                           _checks![index] = value!;
                           print("Pressed ${index}");
-                          widget.notifyParent(_checks);
+                          widget.notifyParent(_checks, _museumChecks);
                         });
                       }, 
                     ),
@@ -143,7 +143,7 @@ class _seaListState extends State<seaList> {
                         setState(() {
                           _museumChecks![index] = value!;
                           print("Pressed ${index}");
-                          widget.notifyParent(_museumChecks);
+                          widget.notifyParent(_checks,_museumChecks);
                         });
                       },
                     ),

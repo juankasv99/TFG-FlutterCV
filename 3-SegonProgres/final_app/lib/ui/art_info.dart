@@ -357,7 +357,12 @@ class _artInfoPageState extends State<artInfoPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          
+          setState(() {
+            widget.notifyParent(artChecks, artMuseumChecks);
+          });
           Navigator.of(context).pop();
+          
         },
         child: const Icon(FontAwesomeIcons.arrowLeft),
         backgroundColor: const Color(0xFF91d7db),

@@ -8,7 +8,7 @@ import 'package:final_app/util/get_available_month.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class artList extends StatefulWidget {
-  final Function(dynamic) notifyParent;
+  final Function(dynamic, dynamic) notifyParent;
   final List<bool> checks;
   final List<bool> museumChecks;
   final Map<String, Art> art;
@@ -134,7 +134,7 @@ class _artListState extends State<artList> {
                             _checks![index] = value!;
                             opacityLevel == 1.0 ? 0.5 : 1.0;
                             print("Pressed ${index}");
-                            widget.notifyParent(_checks);
+                            widget.notifyParent(_checks,_museumChecks);
                           });
                         }, 
                       ),
@@ -148,7 +148,7 @@ class _artListState extends State<artList> {
                             _museumChecks![index] = value!;
                             opacityLevel == 1.0 ? 0.5 : 1.0;
                             print("Pressed ${index}");
-                            widget.notifyParent(_museumChecks);
+                            widget.notifyParent(_checks,_museumChecks);
                           });
                         },
                       ),

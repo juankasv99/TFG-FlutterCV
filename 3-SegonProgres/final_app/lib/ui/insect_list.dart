@@ -6,7 +6,7 @@ import 'package:final_app/util/get_available_month.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class insectList extends StatefulWidget {
-  final Function(dynamic) notifyParent;
+  final Function(dynamic, dynamic) notifyParent;
   final List<bool> checks;
   final List<bool> museumChecks;
   final Map<String, Insects> insects;
@@ -130,7 +130,7 @@ class _insectListState extends State<insectList> {
                         setState(() {
                           _checks![index] = value!;
                           print("Pressed ${index}");
-                          widget.notifyParent(_checks);
+                          widget.notifyParent(_checks, _museumChecks);
                         });
                       }, 
                     ),
@@ -143,7 +143,7 @@ class _insectListState extends State<insectList> {
                         setState(() {
                           _museumChecks![index] = value!;
                           print("Pressed ${index}");
-                          widget.notifyParent(_museumChecks);
+                          widget.notifyParent(_checks, _museumChecks);
                         });
                       },
                     ),
