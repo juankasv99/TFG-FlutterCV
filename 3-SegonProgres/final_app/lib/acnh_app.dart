@@ -186,8 +186,8 @@ class _ACNHappState extends State<ACNHapp> {
   final picker = ImagePicker();
 
   Category? category;
-  String uploadURL = 'http://192.168.1.81:5000/predict';
-  String uploadOCRURL = 'http://192.168.1.81:5000/predictocr';
+  String uploadURL = 'http://192.168.0.13:5000/predict';
+  String uploadOCRURL = 'http://192.168.0.13:5000/predictocr';
 
   var sp;
 
