@@ -1,0 +1,24 @@
+Introducció:
+La intel·ligència artificial i l'aprenentatge computacional són camps amb molt poca compatibilitat nativa en dispositius mòbils com telèfons o tauletes, on les aplicacions estan molt limitades per la seva capacitat de còmput. En aquest projecte s'explora la creació de models intel·ligents on el dispositiu que s'encarrega d'executar les inferències té poca capacitat de còmput.
+
+Objectiu:
+Desenvolupar una aplicació amb funcions de visió per computació tals com Object Detection o OCR preparats per aplicar-los a una aplicació, comparant el rendiment i precisió entre versions locals i Clouds. Creació de datasets personalitzats per la òptima entrenament dels models.
+
+Metodologia:
+	- S'ha utilitzat Yolov5 pels models d'Object Detection (obres d'art) i detecció de text (caça d'animals)
+	- S'ha utilitzat SSDMobileNetV2 pel model de Image Classification
+	- S'ha utilitzat Roboflow per la creació i gestió dels datasets i WandB per revisar els resultats dels entrenaments
+
+Resultats:
+S'han aconseguit 2 aplicacions (local i Cloud) que ajuden a l'usuari a:
+- reconeixer quina obra d'art té el jugador a la pantalla a través d'una fotografia (càmera o galeria) i dir si és fake o és real
+- reconèixer quina espècie d'animal ha atrapat l'usuari i dir-li si ja el té registrat o donat al museu
+- Llista de tots els elements obtenibles per l'usuari, mostrant tant si es té registrat o donat al museu
+- Vista amb informació especifica de cada ítem amb les dades útils de l'ítem
+- Aplicació totalment funcional i amb versió local i Cloud
+
+Conclusions:
+S'han complert tots els objectius principals, creant dues alternatives a aplicacions amb funcions d'intel·ligència artificial.
+Aquesta implementació es pot desplegar a qualsevol tipus d'aplicació, aplicant models de machine learning sobre qualsevol problema.
+
+Possibles fotos? Aplicació ensenyant el seu funcionament, algun quadre, peix o insecte, algun personatge del videojoc...
