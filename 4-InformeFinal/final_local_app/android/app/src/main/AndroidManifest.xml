@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.final_local_app">
    <application
-        android:label="final_local_app"
+        android:label="FlutterCV Local"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
