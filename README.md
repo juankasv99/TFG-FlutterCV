@@ -5,7 +5,7 @@
 # Taula de continguts
   * [Sobre aquest repositori](#sobre-aquest-repositori)
   * [Què és FlutterCV?](#què-és-fluttercv)
-  * [Video Demostració](#video-demostració)
+  * [Vídeo Demostració](#vídeo-demostració)
   * [Instal·lació i ús](#installació-i-ús)
     * [Desenvolupadors](#desenvolupadors)
       * [Instal·lació de YOLOv5](#installació-de-yolov5)
@@ -35,7 +35,7 @@ A més, es pot veure una pàgina d'informació detallada per a cada element del 
 
 # Vídeo Demostració
 
-[![Vídeo Demostració](https://img.youtube.com/vi/-UW04IGZFZM/0.jpg)](https://youtu.be/-UW04IGZFZM?t=1s "Introducing: FlutterCV")
+[![Vídeo Demostració](https://img.youtube.com/vi/-UW04IGZFZM/0.jpg)](https://www.youtube.com/watch?v=-UW04IGZFZM)
 
 # Instal·lació i ús
 - ## Desenvolupadors
