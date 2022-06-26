@@ -33,7 +33,9 @@ FlutterCV és un projecte que aspira a endinsar-se en dos mons que no s'han trac
 FlutterCV és una app Companion del videojoc Animal Crossing New Horizons. Aquestes apps Companion s'encarreguen d'ajudar al jugador a tenir una millor experiència en el joc. En la nostra app en particular, l'aplicació ens ajuda a tenir un registre del progrés en la captura de les diferents classes d'animals que hi ha en el videojoc (més de 200 diferents) per tal de registrar-los en una enciclopèdia i posteriorment exposar-los en el museu. A més, una de les millors funcionalitats és identificar quina obra d'art té el jugador per pantalla i si aquesta és vertadera o es tracta d'una falsificació.
 A més, es pot veure una pàgina d'informació detallada per a cada element del videojoc.
 
-# Video Demostració
+# Vídeo Demostració
+
+[![Vídeo Demostració](https://img.youtube.com/vi/-UW04IGZFZM/0.jpg)](https://youtu.be/-UW04IGZFZM?t=1s "Introducing: FlutterCV")
 
 # Instal·lació i ús
 - ## Desenvolupadors
