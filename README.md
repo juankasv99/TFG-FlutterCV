@@ -33,6 +33,18 @@ FlutterCV és un projecte que aspira a endinsar-se en dos mons que no s'han trac
 FlutterCV és una app Companion del videojoc Animal Crossing New Horizons. Aquestes apps Companion s'encarreguen d'ajudar al jugador a tenir una millor experiència en el joc. En la nostra app en particular, l'aplicació ens ajuda a tenir un registre del progrés en la captura de les diferents classes d'animals que hi ha en el videojoc (més de 200 diferents) per tal de registrar-los en una enciclopèdia i posteriorment exposar-los en el museu. A més, una de les millors funcionalitats és identificar quina obra d'art té el jugador per pantalla i si aquesta és vertadera o es tracta d'una falsificació.
 A més, es pot veure una pàgina d'informació detallada per a cada element del videojoc.
 
+# Organització de directoris
+
+El repositori té la següent estructura de directoris:
+ - **0-Recursos:** En aquest directori es troben els diferents materials del TFG com els documents d'especificació de l'avaluació, les rúbriques, regles dels informes, etc.
+ - **1-Informe Inicial:** Aquesta carpeta conté tots els documents que van sorgir en la primera fase del projecte, com són l'informe inicial o el primer gráfic de Gantt.
+ - **2-Primer Progrés:** En aquesta fase es va generar l'informe corresponent, el gràfic de Gantt i els primers models YOLOv5. També es va començar a explorar l'Image Classification (carpeta test_image_class). Dintre de la carpeta YOLOv5 es troben tots els models preentrenats, les runs de train/test, els datasets creats pel projecte (Mock-Art)...
+També es pot trobar una primera aproximació d'aplicació al directori FlutterAppDraft, on es va desenvolupar un prototip per probar l'inclusió dels models a l'ecosistema de Flutter
+ - **3-Segon Progrés:** Aquesta secció conté l'OCR Cloud amb totes les implementacions necessàries (CustomOCR), l'API de Flask per fer servir l'OCR (ML_API), l'aplicació final cloud (final_app) i l'aplicació de prova per aplicar l'ocr local (flutter_app_ocr). A més, es poden trobar tant l'informe del segon progrés com el diagrama de Gantt.
+ - **4-Informe Final:** Aquest directori conté l'aplicació local final (final_local_app) així com l'informe final del TFG.
+ - **5-Poster:** Tot el material necessari pel poster.
+ - **6-Dossier:** Tot el material generat pel dossier i el vídeo demostració de l'aplicació.
+
 # Vídeo Demostració
 
 [![Vídeo Demostració](https://img.youtube.com/vi/-UW04IGZFZM/0.jpg)](https://www.youtube.com/watch?v=-UW04IGZFZM)
