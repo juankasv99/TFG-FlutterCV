@@ -5,6 +5,7 @@
 # Taula de continguts
   * [Sobre aquest repositori](#sobre-aquest-repositori)
   * [Què és FlutterCV?](#què-és-fluttercv)
+  * [Organització de directoris](#organització-de-directoris)
   * [Vídeo Demostració](#vídeo-demostració)
   * [Instal·lació i ús](#installació-i-ús)
     * [Desenvolupadors](#desenvolupadors)
